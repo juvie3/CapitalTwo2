@@ -12,18 +12,24 @@ import car from "./capImg3.png";
 import deal from "./capDealsImg.webp";
 import wellness from "./capWellnessImg.avif";
 import bullHorn from "./capBullHorn.png";
+import { useHistory } from "react-router-dom";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
+
     if (data) {
       setErrors(data);
+      console.log(errors);
+    } else {
+      history.replace('/accounts')
     }
   };
 
