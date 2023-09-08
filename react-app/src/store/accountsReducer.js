@@ -13,11 +13,9 @@ export const fetchAccounts = () => async (dispatch) => {
 
       if (res.ok) {
             const allAccounts = await res.json()
-            console.log(allAccounts, 'allaccouts');
             dispatch(loadAccounts(allAccounts))
       } else {
             const errors = await res.json()
-            console.log(errors, "error");
             return errors
       }
 }
