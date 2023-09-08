@@ -134,6 +134,10 @@
       border-radius: 3px;
 }
 
+#lower-left-text-3-acct-box:hover {
+      cursor: pointer;
+}
+
 #left-lower-left-panel-account-box {
       width: 54%;
 }

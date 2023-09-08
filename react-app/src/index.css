@@ -1,8 +1,16 @@
 /* TODO Add site wide styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 body {
-      font-family: "Roboto";
-      margin: 0;
+  font-family: "Roboto";
+  margin: 0;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.05);
 }

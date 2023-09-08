@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAccounts } from "../../store/accountsReducer";
 import { useEffect } from "react";
 import { fetchTransactions } from "../../store/transactionsReducer";
+import { useHistory } from "react-router-dom";
 import boardwalk from './boardwalk.jpg'
 import tileBack from './capTile.jpeg'
 import './styleAccounts.css'
 
 export const Accounts = () => {
       const dispatch = useDispatch()
+      const history = useHistory()
 
       const user = useSelector((state) => state.session.user)
       const accounts = useSelector((state) => state.accounts ? state.accounts : {})
@@ -19,6 +21,9 @@ export const Accounts = () => {
             dispatch(fetchTransactions())
       }, [dispatch])
 
+      const handleNewAcct = () => {
+
+      }
 
 
       const acctArr = Object.values(accounts)
@@ -46,16 +51,16 @@ export const Accounts = () => {
                                           <div id='lower-left-text-2-acct-box'>Explore all our products now to find an account that's right for you.</div>
                                     </div>
                                     <div id='butt-holder'>
-                                          <div id='lower-left-text-3-acct-box' >Open a new account</div>
+                                          <div className="grow" onClick={handleNewAcct} id='lower-left-text-3-acct-box' >Open a new account</div>
                                     </div>
                               </div>
                         </div>
 
                         <div id='right-account-box-holder'>
-                              <div id='upper-right-account-box'>
-                                    <img id='tile-background' src={tileBack}>
-                                    </img>
-                                          <div>360 Savings Acct</div>
+                              <div id='upper-right-account-box' style={{ backgroundImage:`url(${tileBack})` }}>
+                                          <div id='upper-left-text-1-acct-box' >360 Savings Acct</div>
+                                          <div id='upper-left-text-2-acct-box' >45678.90</div>
+                                          <div id='upper-left-text-3-acct-box' >AVAILABLE BALANCE</div>
                               </div>
                               <div id='lower-right-account-box'>
 
