@@ -3,6 +3,7 @@ import { fetchAccounts } from "../../store/accountsReducer";
 import { useEffect } from "react";
 import { fetchTransactions } from "../../store/transactionsReducer";
 import boardwalk from './boardwalk.jpg'
+import tileBack from './capTile.jpeg'
 import './styleAccounts.css'
 
 export const Accounts = () => {
@@ -40,13 +41,19 @@ export const Accounts = () => {
                                     <div id='view-acct'>View Account</div>
                               </div>
                               <div id='lower-left-account-box'>
-
+                                    <div id='left-lower-left-panel-account-box'>
+                                          <div id='lower-left-text-1-acct-box'>Explore other products</div>
+                                          <div id='lower-left-text-2-acct-box'>Explore all our products now to find an account that's right for you.</div>
+                                    </div>
+                                    <div id='lower-left-text-3-acct-box' >Open a new account</div>
                               </div>
                         </div>
 
                         <div id='right-account-box-holder'>
                               <div id='upper-right-account-box'>
-
+                                    <img id='tile-background' src={tileBack}>
+                                    </img>
+                                          <div>360 Savings Acct</div>
                               </div>
                               <div id='lower-right-account-box'>
 
