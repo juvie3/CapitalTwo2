@@ -1,7 +1,92 @@
 .profile-dropdown {
   position: absolute;
+  top: 45px;
+  right: 200px;
+  padding: 20px 10px;
+  background-color: white;
+  border: 1px solid rgb(235, 235, 235);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 10px;
 }
 
 .hidden {
   display: none;
+}
+
+#nav-entire-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin: 15px 0 10px 0;
+}
+
+#inner-div-nav-entire-page {
+  width: 1125px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#left-panel-inner-div-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+#logo-nav {
+  height: 45px;
+}
+
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  font-size: 14px;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+}
+
+#right-panel-inner-div-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-icon {
+  height: 15px;
+}
+
+.nav-icon:hover {
+  cursor: pointer;
+}
+
+#sign-in-div-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#sign-in-nav {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+#sign-in-div-nav:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
