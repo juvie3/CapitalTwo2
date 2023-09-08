@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
+import { useHistory } from "react-router-dom";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function LoginFormModal() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
+  const history = useHistory()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,18 @@ function LoginFormModal() {
       setErrors(data);
     } else {
         closeModal()
+        history.replace('/accounts')
+    }
+  };
+
+  const demoSignIn = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    } else {
+      closeModal()
+      history.replace('/accounts')
     }
   };
 
@@ -49,6 +63,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <div id='demo-link' className="grow" onClick={demoSignIn}>Demo User</div>
       </form>
     </>
   );

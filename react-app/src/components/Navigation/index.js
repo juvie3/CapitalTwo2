@@ -12,11 +12,14 @@ import search from "./search.png";
 import question from "./question.png";
 import map from "./map.png";
 import profile from "./profile.png";
+import { useHistory } from "react-router-dom";
+import { useModal } from "../../context/Modal";
 
 function Navigation({ isLoaded }) {
   const user = useSelector((state) => state.session.user);
+  const history = useHistory();
+  const { closeModal } = useModal();
 
-  // ===========================================
 
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -44,6 +47,8 @@ function Navigation({ isLoaded }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    history.replace('/')
+    closeModal()
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -73,15 +78,17 @@ function Navigation({ isLoaded }) {
           <img src={map} className="nav-icon" />
           <div id="sign-in-div-nav" onClick={openMenu}>
             <img src={profile} className="nav-icon" />
-            <div id="sign-in-nav">Sign In</div>
+            {
+              user ? <div className="hidden">Sign In</div> : <div id="sign-in-nav">Sign In</div>
+            }
             <ul className={ulClassName} ref={ulRef}>
               {user ? (
                 <>
-                  <li>{user.username}</li>
-                  <li>{user.email}</li>
-                  <li>
+                  <div>{user.username}</div>
+                  <div>{user.email}</div>
+                  <div>
                     <button onClick={handleLogout}>Log Out</button>
-                  </li>
+                  </div>
                 </>
               ) : (
                 <>

@@ -45,7 +45,9 @@ export const Accounts = () => {
                                           <div id='lower-left-text-1-acct-box'>Explore other products</div>
                                           <div id='lower-left-text-2-acct-box'>Explore all our products now to find an account that's right for you.</div>
                                     </div>
-                                    <div id='lower-left-text-3-acct-box' >Open a new account</div>
+                                    <div id='butt-holder'>
+                                          <div id='lower-left-text-3-acct-box' >Open a new account</div>
+                                    </div>
                               </div>
                         </div>
 
