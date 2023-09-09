@@ -15,6 +15,14 @@ body {
   transform: scale(1.05);
 }
 
+.grow-big {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow-big:hover {
+  transform: scale(1.2);
+}
+
 #demo-link {
   text-align: center;
   color: rgb(4, 118, 177);;

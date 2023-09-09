@@ -8,6 +8,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import { LandingPage } from "./components/LandingPage";
 import { Accounts } from "./components/Accounts";
+import { AccountExistingNew } from "./components/AccountExistingNew";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <ProtectedRoute exact path="/accounts/existingnew">
+            <AccountExistingNew />
+          </ProtectedRoute>
           <ProtectedRoute exact path="/accounts">
             <Accounts />
           </ProtectedRoute>

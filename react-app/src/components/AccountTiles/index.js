@@ -10,7 +10,7 @@ export const AccountTiles = ({ account }) => {
   const handleNewAcct = () => {};
 
   if (account.accountType == "checking") account.accountType = "Checking";
-  if (account.accountType == "Savings") account.accountType = "Savings";
+  if (account.accountType == "savings") account.accountType = "Savings";
 
   return (
     <div id="entire-tile-holder">
