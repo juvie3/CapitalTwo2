@@ -11,10 +11,14 @@ def seed_accounts():
       account3 = Account(
             user_id = 3, account_type = "checking", funds = 12345.67
       )
+      account4 = Account(
+            user_id = 1, account_type = "savings", funds = 45678.90
+      )
 
       db.session.add(account1)
       db.session.add(account2)
       db.session.add(account3)
+      db.session.add(account4)
       db.session.commit()
 
 

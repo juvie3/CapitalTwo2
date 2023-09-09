@@ -14,3 +14,12 @@ body {
 .grow:hover {
   transform: scale(1.05);
 }
+
+#demo-link {
+  text-align: center;
+  color: rgb(4, 118, 177);;
+}
+
+#demo-link:hover {
+  cursor: pointer;
+}

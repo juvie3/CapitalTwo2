@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import boardwalk from './boardwalk.jpg'
 import tileBack from './capTile.jpeg'
 import './styleAccounts.css'
+import { AccountTiles } from "../AccountTiles";
 
 export const Accounts = () => {
       const dispatch = useDispatch()
@@ -37,7 +38,7 @@ export const Accounts = () => {
                   <img id='boardwalk-img' src={boardwalk} />
                   <div id='boardwalk-text'>What works for you? Learn to design your own payment plan for your account. Explore plans.</div>
 
-                  <div id='account-box-holder'>
+                  {/* <div id='account-box-holder'>
                         <div id='left-account-box-holder'>
                               <div id='upper-left-account-box'>
                                     <div id='upper-left-text-1-acct-box' >360 Checking Acct</div>
@@ -68,9 +69,31 @@ export const Accounts = () => {
                         </div>
 
 
+                  </div> */}
+
+                  <div id='account-tiles-holder'>
+                        <div id='inner-holder-test'>
+                        { acctArr.map((account) => (
+
+                              <AccountTiles account={account} key={account.id} />
+
+                        ))}
+
+                        <div id='lower-left-account-box'>
+                                    <div id='left-lower-left-panel-account-box'>
+                                          <div id='lower-left-text-1-acct-box'>Explore other products</div>
+                                          <div id='lower-left-text-2-acct-box'>Explore all our products now to find an account that's right for you.</div>
+                                    </div>
+                                    <div id='butt-holder'>
+                                          <div className="grow" onClick={handleNewAcct} id='lower-left-text-3-acct-box' >Open a new account</div>
+                                    </div>
+                              </div>
+                        </div>
+
+
                   </div>
 
-                  {
+                  {/* {
                         acctArr.map((acct) => (
                               <div>{`${acct.accountType} account with $${acct.funds}`}</div>
 
@@ -84,7 +107,7 @@ export const Accounts = () => {
 
                         ))
 
-                  }
+                  } */}
 
 
 

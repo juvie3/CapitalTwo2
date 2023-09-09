@@ -33,6 +33,16 @@ export const LandingPage = () => {
     }
   };
 
+  const demoSignIn = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    } else {
+      history.replace('/accounts')
+    }
+  };
+
   return (
     <div id="landing-entire-page">
       <div id="inner-div-landing-entire-page">
@@ -81,8 +91,8 @@ export const LandingPage = () => {
                 <button type="submit" id="sign-in-butt-landing-page">
                   Sign In
                 </button>
-                <div className="lower-label-sign-in-landing-page">
-                  Set up online access
+                <div onClick={demoSignIn} className="lower-label-sign-in-landing-page">
+                  Sign in as a demo user
                 </div>
               </div>
             </div>

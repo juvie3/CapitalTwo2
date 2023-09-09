@@ -63,6 +63,10 @@
   margin-top: 12px;
 }
 
+.lower-label-sign-in-landing-page:hover {
+  cursor: pointer;
+}
+
 #sign-in-butt-landing-page {
   width: 170px;
   height: 32px;

@@ -1,0 +1,70 @@
+
+#entire-tile-holder {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+      margin: 20px 0;
+}
+
+#account-tile {
+      width: 550px;
+      height: 185px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: linear-gradient(rgb(0,61,91), rgb(21,80,112));
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#account-tile-checking {
+      width: 550px;
+      height: 185px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: linear-gradient(rgb(0,61,91), rgb(21,80,112));
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#left-account-tile {
+      width: 54%;
+}
+
+#left-text-1-acct-tile {
+      font-size: 24px;
+      color: white;
+      font-weight: 200;
+      padding-left: 25px;
+      padding-top: 25px;
+      padding-bottom: 5px;
+}
+
+#left-text-2-acct-tile {
+      font-size: 52px;
+      color: white;
+      font-weight: 100;
+      padding-left: 25px;
+      padding-bottom: 5px;
+}
+
+#left-text-3-acct-tile {
+      font-size: 12px;
+      color: white;
+      padding-left: 30px;
+}
+
+#view-account-butt {
+      color: white;
+      font-size: 20px;
+      border: 1px solid white;
+      padding: 15px 30px;
+      margin: 30px 30px;
+      border-radius: 3px;
+}
+
+#view-account-butt:hover {
+      cursor: pointer;
+}
