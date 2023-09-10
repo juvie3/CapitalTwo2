@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { fetchCreateAccount } from "../../store/accountsReducer";
 import './styleAccountCheckingForm.css'
+import tileBack from './capTile.jpeg'
 
 export const AccountCheckingForm = () => {
       const dispatch = useDispatch();
@@ -107,9 +108,10 @@ export const AccountCheckingForm = () => {
                                     onChange={(e) => setFunds(e.target.value)}
                                     required
                                     />
-                                    <button className="form-submit-butt-checking" type='submit'>Submit</button>
                               </div>
-
+                                    <div id='butt-div-form'>
+                                    <button className="form-submit-butt-checking grow" type='submit'>Submit</button>
+                                    </div>
                         </form>
 
                   </div>

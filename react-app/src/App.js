@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import { LandingPage } from "./components/LandingPage";
 import { Accounts } from "./components/Accounts";
 import { AccountExistingNew } from "./components/AccountExistingNew";
+import { AccountDetails } from "./components/AccountDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <ProtectedRoute exact path="/accounts/existingnew">
             <AccountExistingNew />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/accounts/:accountId">
+            <AccountDetails />
           </ProtectedRoute>
           <ProtectedRoute exact path="/accounts">
             <Accounts />

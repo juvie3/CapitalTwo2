@@ -89,6 +89,7 @@
       padding: 10px ;
       border-radius: 5px;
       background-color: rgb(2,118,177);
+
 }
 
 .checking-saving-box-text-4-open-account-existing:hover {
@@ -106,17 +107,22 @@
 #check-form-render {
       position: relative;
       animation:
-            slide-down 1000ms forwards;
-            /* fade-in 500ms forwards; */
+            slide-down 2000ms forwards,
+            fade-in 2500ms forwards;
       z-index: 0;
 }
 
 #savings-form-render {
       position: relative;
       animation:
-            slide-up 1000ms forwards;
-            /* fade-in 500ms forwards; */
+            slide-up 2000ms forwards,
+            fade-in 2500ms forwards;
       z-index: 0;
+}
+
+#anchor {
+      text-decoration: none;
+      color: white;
 }
 
 

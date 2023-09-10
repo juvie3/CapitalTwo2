@@ -23,6 +23,10 @@ body {
   transform: scale(1.2);
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 #demo-link {
   text-align: center;
   color: rgb(4, 118, 177);;

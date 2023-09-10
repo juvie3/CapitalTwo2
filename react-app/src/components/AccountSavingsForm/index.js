@@ -107,8 +107,11 @@ export const AccountSavingsForm = () => {
                                     onChange={(e) => setFunds(e.target.value)}
                                     required
                                     />
-                                    <button className="form-submit-butt-checking" type='submit'>Submit</button>
+
                               </div>
+                              <div id='butt-div-form'>
+                                    <button className="form-submit-butt-checking grow" type='submit'>Submit</button>
+                                    </div>
 
                         </form>
 

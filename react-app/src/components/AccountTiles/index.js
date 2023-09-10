@@ -1,13 +1,18 @@
 import "./styleAccountTiles.css";
 import tileBack from "./capTile.jpeg";
+import { useHistory } from "react-router-dom";
 
 export const AccountTiles = ({ account }) => {
+      const history = useHistory()
+
   let dollar = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  const handleNewAcct = () => {};
+  const handleNewAcct = () => {
+      history.replace(`/accounts/${account.id}`)
+  };
 
   if (account.accountType == "checking") account.accountType = "Checking";
   if (account.accountType == "savings") account.accountType = "Savings";

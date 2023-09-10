@@ -37,12 +37,16 @@ export const AccountExistingNew = () => {
                                           <li>24/7 mobile banking on the app</li>
                                           <li>70,000+ fee-free ATMs</li>
                                     </ul>
-                                    <div onClick={ () => settingAcctType('checking')} className='checking-saving-box-text-4-open-account-existing'>Open account</div>
+                                    <div onClick={ () => settingAcctType('checking')} className='checking-saving-box-text-4-open-account-existing'>
+                                          <a id='anchor' href='#form-anchor'>Open account</a>
+                                          </div>
+
+
                               </div>
+                              {/* <div id='form-anchor'></div> */}
 
                         </div>
                         <img className='checking-saving-background-open-account-exiting' src={checkback} />
-
 
                   </div>
 
@@ -72,7 +76,9 @@ export const AccountExistingNew = () => {
                                           <li>No fees or minimums</li>
                                           <li>24/7 mobile banking on the app</li>
                                     </ul>
-                                    <div onClick={ () => settingAcctType('savings')}className='checking-saving-box-text-4-open-account-existing'>Open account</div>
+                                    <div onClick={ () => settingAcctType('savings')}className='checking-saving-box-text-4-open-account-existing'>
+                                    <a id='anchor' href='#form-anchor'>Open account</a>
+                                          </div>
                               </div>
 
                         </div>
