@@ -1,4 +1,5 @@
 export const LOAD_ACCOUNTS = 'accounts/loadAccounts'
+// export const CREATE_ACCOUNT = 'accounts/createAccount'
 
 export const loadAccounts = (accounts) => ({
       type: LOAD_ACCOUNTS,
@@ -10,6 +11,23 @@ export const fetchAccounts = () => async (dispatch) => {
       // console.log('hello from thunk');
 
       const res = await fetch('/api/accounts/')
+
+      if (res.ok) {
+            const allAccounts = await res.json()
+            dispatch(loadAccounts(allAccounts))
+      } else {
+            const errors = await res.json()
+            return errors
+      }
+}
+
+export const fetchCreateAccount = (account) => async (dispatch) => {
+
+      const res = await fetch('/api/accounts/new', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(account),
+      })
 
       if (res.ok) {
             const allAccounts = await res.json()

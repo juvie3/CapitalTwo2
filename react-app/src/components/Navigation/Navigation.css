@@ -1,5 +1,6 @@
 .profile-dropdown {
   position: absolute;
+  z-index: 5;
   top: 45px;
   right: 200px;
   padding: 20px 10px;

@@ -3,8 +3,18 @@ import checkback from './cap-background-checking.png'
 import saveback from './cap-background-savings.png'
 import checkicon from './checkicon.png'
 import savingsicon from './savingsicon.png'
+import { AccountCheckingForm } from '../AccountCheckingForm'
+import { useState } from 'react'
+import { AccountSavingsForm } from '../AccountSavingsForm'
+
 
 export const AccountExistingNew = () => {
+
+      const [newAcctType, setNewAcctType] = useState('')
+
+      const settingAcctType = (type) => {
+            setNewAcctType(type)
+      }
 
       return (
             <div id='entire-page-exist-new-acct'>
@@ -27,7 +37,7 @@ export const AccountExistingNew = () => {
                                           <li>24/7 mobile banking on the app</li>
                                           <li>70,000+ fee-free ATMs</li>
                                     </ul>
-                                    <div className='checking-saving-box-text-4-open-account-existing'>Open account</div>
+                                    <div onClick={ () => settingAcctType('checking')} className='checking-saving-box-text-4-open-account-existing'>Open account</div>
                               </div>
 
                         </div>
@@ -35,6 +45,19 @@ export const AccountExistingNew = () => {
 
 
                   </div>
+
+                  {
+                        newAcctType == 'checking' ? <div  id='check-form-render'>
+                              <AccountCheckingForm />
+                              </div> : null
+                  }
+
+                  {
+                        newAcctType == 'savings' ? <div  id='savings-form-render'>
+                              <AccountSavingsForm />
+                              </div> : null
+
+                  }
 
                   <div className='checking-saving-div-open-account-existing'>
                         <div className='checking-saving-div-text-open-account-existing'>
@@ -49,7 +72,7 @@ export const AccountExistingNew = () => {
                                           <li>No fees or minimums</li>
                                           <li>24/7 mobile banking on the app</li>
                                     </ul>
-                                    <div className='checking-saving-box-text-4-open-account-existing'>Open account</div>
+                                    <div onClick={ () => settingAcctType('savings')}className='checking-saving-box-text-4-open-account-existing'>Open account</div>
                               </div>
 
                         </div>
