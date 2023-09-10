@@ -65,3 +65,54 @@ def create_account():
 
             print(response)
             return response
+
+      else:
+            print(form.errors)
+            return {"errors": form.errors}
+
+
+@accounts.route("/update/<int:id>", methods=["POST"])
+@login_required
+def update_account(id):
+
+
+      form = AccountsForm()
+
+      form["csrf_token"].data = request.cookies["csrf_token"]
+
+      if form.validate_on_submit():
+            account = Account.query.get(id)
+
+
+            newFundAmt = account.funds + form.data["funds"]
+
+            account.funds = newFundAmt
+            db.session.commit()
+
+            res = Account.query.filter(Account.user_id == current_user.id)
+
+            response = [prod.to_dict() for prod in res]
+
+            print(response)
+            return response
+
+      else:
+            print(form.errors)
+            return {"errors": form.errors}
+
+
+@accounts.route("/delete/<int:id>", methods=["DELETE"])
+@login_required
+def delete_account(id):
+      accountSelected = Account.query.get(id)
+
+      if accountSelected:
+            try:
+                  db.session.delete(accountSelected)
+                  db.session.commit()
+                  return redirect("/accounts")
+            except Exception as error:
+                  return { "errors": error }
+
+      else:
+            return { "error": "account can not be found" }

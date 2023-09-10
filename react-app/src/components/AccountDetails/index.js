@@ -6,6 +6,9 @@ import { fetchTransactions } from "../../store/transactionsReducer";
 import { useHistory } from "react-router-dom";
 
 import './styleAccountDetails.css'
+import OpenModalButton from "../OpenModalButton";
+import { AccountCheckingForm } from "../AccountCheckingForm";
+import { AccountFundUpdate } from "../AccountFundUpdate";
 
 
 export const AccountDetails = () => {
@@ -68,6 +71,10 @@ export const AccountDetails = () => {
                               <div id='add-funds-butt-acct-details' className="grow pointer">
                               <i class="fa-solid fa-circle-plus"></i>
                                     {` Add Funds`}
+                                    <OpenModalButton
+                                    buttonText="Add Funds"
+                                    modalComponent={<AccountFundUpdate account={account} />}
+                                    />
                                     </div>
                               <div id='delete-butt-acct-details' className="grow pointer">
                               <i class="fa-solid fa-circle-minus"></i>

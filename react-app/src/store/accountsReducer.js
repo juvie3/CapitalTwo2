@@ -38,6 +38,26 @@ export const fetchCreateAccount = (account) => async (dispatch) => {
       }
 }
 
+export const fetchUpdateAccount = (account) => async (dispatch) => {
+
+      const { account_type, funds } = account
+      const accountUpdated = { account_type, funds }
+
+      const res = await fetch(`/api/accounts/update/${account.id}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(accountUpdated)
+      })
+
+      if (res.ok) {
+            const allAccounts = await res.json()
+            dispatch(loadAccounts(allAccounts))
+      } else {
+            const errors = await res.json()
+            return errors
+      }
+}
+
 
 const initialState = {}
 
