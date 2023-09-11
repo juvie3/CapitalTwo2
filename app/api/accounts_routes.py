@@ -17,7 +17,7 @@ def get_accounts():
 
       res = Account.query.filter(Account.user_id == current_user.id)
 
-      response = [prod.to_dict() for prod in res]
+      response = [acct.to_dict() for acct in res]
 
       print(response)
       return response
@@ -32,7 +32,7 @@ def get_transactions():
 
       res = Transaction.query.filter(Transaction.user_id == current_user.id)
 
-      response = [prod.to_dict() for prod in res]
+      response = [transaction.to_dict() for transaction in res]
 
       print(response)
       return response
@@ -61,7 +61,7 @@ def create_account():
 
             res = Account.query.filter(Account.user_id == current_user.id)
 
-            response = [prod.to_dict() for prod in res]
+            response = [acct.to_dict() for acct in res]
 
             print(response)
             return response
@@ -91,7 +91,7 @@ def update_account(id):
 
             res = Account.query.filter(Account.user_id == current_user.id)
 
-            response = [prod.to_dict() for prod in res]
+            response = [acct.to_dict() for acct in res]
 
             print(response)
             return response
@@ -114,7 +114,7 @@ def delete_account(id):
 
                   res = Account.query.filter(Account.user_id == current_user.id)
 
-                  response = [prod.to_dict() for prod in res]
+                  response = [acct.to_dict() for acct in res]
 
                   print(response)
                   return response

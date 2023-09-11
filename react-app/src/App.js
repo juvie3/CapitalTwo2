@@ -10,6 +10,7 @@ import { LandingPage } from "./components/LandingPage";
 import { Accounts } from "./components/Accounts";
 import { AccountExistingNew } from "./components/AccountExistingNew";
 import { AccountDetails } from "./components/AccountDetails";
+import { Transfers } from "./components/Transfers";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path="/accounts">
             <Accounts />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/transfers/:accountId">
+            <Transfers />
           </ProtectedRoute>
           <Route exact path="/" >
             <LandingPage />

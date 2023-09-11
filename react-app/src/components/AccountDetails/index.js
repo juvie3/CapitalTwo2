@@ -24,10 +24,14 @@ export const AccountDetails = () => {
       let dollar = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
-          });
+      });
 
       const backToAccts = () => {
             history.replace('/accounts')
+      }
+
+      const goTransfer = () => {
+            history.replace(`/transfers/${accountId}`)
       }
 
       useEffect(() => {
@@ -64,7 +68,7 @@ export const AccountDetails = () => {
                               <div id='funds-acct-details'>{dollar.format(account.funds)}</div>
                         </div>
                         <div>
-                        <div id='transfer-butt-acct-details' className="grow pointer">Transfer Money</div>
+                        <div onClick={goTransfer} id='transfer-butt-acct-details' className="grow pointer">Transfer Money</div>
 
                         </div>
 
