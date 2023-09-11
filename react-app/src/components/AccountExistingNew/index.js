@@ -6,20 +6,31 @@ import savingsicon from './savingsicon.png'
 import { AccountCheckingForm } from '../AccountCheckingForm'
 import { useState } from 'react'
 import { AccountSavingsForm } from '../AccountSavingsForm'
+import { useHistory } from 'react-router-dom'
 
 
 export const AccountExistingNew = () => {
-
+      const history = useHistory()
       const [newAcctType, setNewAcctType] = useState('')
 
       const settingAcctType = (type) => {
             setNewAcctType(type)
       }
 
+      const backToAccts = () => {
+            history.replace('/accounts')
+      }
+
       return (
             <div id='entire-page-exist-new-acct'>
                   <div id='exit-new-open-account-upper-div'>
-                        <div id='inner-exit-new-open-account-upper-div'> Open a new account</div>
+                        <div id='inner-exit-new-open-account-upper-div'>
+
+                        <div id='open-text-exist-new'>Open a new account</div>
+                        <div id='all-accts-butt-exist-new' className="grow pointer" onClick={backToAccts}>See All Accounts</div>
+
+
+                        </div>
                   </div>
 
                   {/* <div id='checking-div-open-account-existing' style={{ backgroundImage: `url(${checkback})` }}></div> */}

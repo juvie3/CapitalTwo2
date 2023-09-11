@@ -47,6 +47,8 @@
       font-weight: 300;
       border: 2px solid white;
       padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
 }
 
 #inner-acct-details-entire-page-2 {
@@ -74,4 +76,36 @@
       font-weight: 500;
       border-radius: 5px;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#add-funds-butt-acct-details > button {
+      border: none;
+      background-color: white;
+      color: rgb(2,118,177);
+      font-size: 18px;
+      font-weight: 500;
+}
+
+#add-funds-butt-acct-details > button:hover {
+      cursor: pointer;
+}
+
+#delete-butt-acct-details > button {
+      border: none;
+      background-color: white;
+      color: rgb(2,118,177);
+      font-size: 18px;
+      font-weight: 500;
+}
+
+#delete-butt-acct-details > button:hover {
+      cursor: pointer;
+}
+
+#all-accts-butt {
+      color: white;
+      border: 1px solid white;
+      text-align: center;
+      margin-top: 7px;
+      border-radius: 4px;
 }

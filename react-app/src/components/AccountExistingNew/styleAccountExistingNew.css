@@ -17,9 +17,25 @@
 
 #inner-exit-new-open-account-upper-div {
       width: 1125px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1rem;
+}
+
+#open-text-exist-new {
       font-size: 32px;
       font-weight: 500;
       color: white;
+}
+
+#all-accts-butt-exist-new {
+      color: white;
+      border: 1px solid white;
+      margin-top: 7px;
+      border-radius: 4px;
+      height: 50%;
+      padding: 3px 5px;
 }
 
 .checking-saving-div-open-account-existing {

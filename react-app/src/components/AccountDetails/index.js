@@ -26,6 +26,9 @@ export const AccountDetails = () => {
             currency: "USD",
           });
 
+      const backToAccts = () => {
+            history.replace('/accounts')
+      }
 
       useEffect(() => {
             dispatch(fetchAccounts())
@@ -50,7 +53,12 @@ export const AccountDetails = () => {
                   <div id='acct-details-upper-div'>
                   <div id='inner-acct-details-upper-div'>
 
+                        <div>
                         <div id='type-account-details'>{`360 ${account.accountType}`}</div>
+                        <div id='all-accts-butt' className="grow pointer" onClick={backToAccts}>See All Accounts</div>
+
+                        </div>
+
                         <div>
                               <div id='avail-acct-details'>AVAILABLE BALANCE</div>
                               <div id='funds-acct-details'>{dollar.format(account.funds)}</div>
@@ -71,7 +79,6 @@ export const AccountDetails = () => {
                         <div id='transaction-link-bar-acct-details'>
                               <div id='add-funds-butt-acct-details' className="grow pointer">
                               <i class="fa-solid fa-circle-plus"></i>
-                                    {` Add Funds`}
                                     <OpenModalButton
                                     buttonText="Add Funds"
                                     modalComponent={<AccountFundUpdate account={account} />}
@@ -79,7 +86,6 @@ export const AccountDetails = () => {
                                     </div>
                               <div id='delete-butt-acct-details' className="grow pointer">
                               <i class="fa-solid fa-circle-minus"></i>
-                                    {` Delete Account`}
                                     <OpenModalButton
                                     buttonText="Delete Account"
                                     modalComponent={<AccountDelete account={account} />}
