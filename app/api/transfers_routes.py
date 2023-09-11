@@ -54,8 +54,6 @@ def update_transfer(id):
 
       transfer = Transfer.query.get(id)
 
-      print('=========================================', transfer)
-
       transfer.date_paid = datetime.now()
       db.session.commit()
 
@@ -65,3 +63,28 @@ def update_transfer(id):
 
       print(response)
       return response
+
+
+@transfers.route('/delete/<int:id>', methods=["DELETE"])
+@login_required
+def delete_transfer(id):
+
+      transfer = Transfer.query.get(id)
+
+      if transfer:
+            try:
+                  db.session.delete(transfer)
+                  db.session.commit()
+
+                  res = Transfer.query.filter(Transfer.user_id == current_user.id)
+
+                  response = [transfer.to_dict() for transfer in res]
+
+                  print(response)
+                  return response
+
+            except Exception as error:
+                  return { "errors": error }
+
+      else:
+            return { "error": "transfer can not be found" }

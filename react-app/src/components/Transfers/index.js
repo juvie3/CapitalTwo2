@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchCreateTransfer, fetchTransfers, fetchUpdateTransfer } from "../../store/transfersReducer"
+import { fetchCreateTransfer, fetchDeleteTransfer, fetchTransfers, fetchUpdateTransfer } from "../../store/transfersReducer"
 import './styleTransfers.css'
 
 export const Transfers = () => {
@@ -29,6 +29,10 @@ export const Transfers = () => {
 
       const send = async (id) => {
             await dispatch(fetchUpdateTransfer(id))
+      }
+
+      const deleteTransfer = async (id) => {
+            await dispatch(fetchDeleteTransfer(id))
       }
 
       useEffect(() => {
@@ -93,7 +97,7 @@ export const Transfers = () => {
                                     {
                                           transfer.date_paid ?
                                           null :
-                                          <div>Delete</div>
+                                          <div onClick={()=>deleteTransfer(transfer.id)} >Delete</div>
 
                                     }
 

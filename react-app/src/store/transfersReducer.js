@@ -1,8 +1,14 @@
 export const LOAD_TRANSFERS = 'transfers/loadTransfers'
+export const DELETE_TRANSFER = 'transfers/deleteTransfer'
 
 
 export const loadTransfers = (transfers) => ({
       type: LOAD_TRANSFERS,
+      transfers
+})
+
+export const deleteTransfer = (transfers) => ({
+      type: DELETE_TRANSFER,
       transfers
 })
 
@@ -71,6 +77,25 @@ export const fetchUpdateTransfer = (id) => async (dispatch) => {
       }
 }
 
+export const fetchDeleteTransfer = (id) => async (dispatch) => {
+
+      const res = await fetch(`/api/transfers/delete/${id}`, {
+            method: 'DELETE'
+      })
+
+      if (res.ok) {
+            const allTransfers = await res.json()
+
+            const transferObj = {}
+            allTransfers.forEach(transfer => transferObj[transfer.id] = transfer)
+
+            dispatch(deleteTransfer(transferObj))
+      } else {
+            const errors = await res.json()
+            return errors
+      }
+}
+
 
 const initialState = {}
 
@@ -78,7 +103,10 @@ export const transfersReducer = (state = initialState, action) => {
       switch (action.type) {
             case LOAD_TRANSFERS:
                   return { ...state, ...action.transfers }
+            case DELETE_TRANSFER:
+                  return { ...action.transfers }
             default:
                   return state
       }
+
 }
