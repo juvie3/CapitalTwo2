@@ -57,6 +57,13 @@ def update_transfer(id):
       transfer.date_paid = datetime.now()
       db.session.commit()
 
+      account = Account.query.get(transfer.account_id)
+
+      newAmount = account.funds - transfer.amount
+
+      account.funds = newAmount
+      db.session.commit()
+
       res = Transfer.query.filter(Transfer.user_id == current_user.id)
 
       response = [transfer.to_dict() for transfer in res]
