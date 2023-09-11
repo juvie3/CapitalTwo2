@@ -14,12 +14,12 @@ export const Accounts = () => {
 
       const user = useSelector((state) => state.session.user)
       const accounts = useSelector((state) => state.accounts ? state.accounts : {})
-      const transactions = useSelector((state) => state.transactions ? state.transactions : {})
+      // const transactions = useSelector((state) => state.transactions ? state.transactions : {})
 
 
       useEffect(() => {
             dispatch(fetchAccounts())
-            dispatch(fetchTransactions())
+            // dispatch(fetchTransactions())
       }, [dispatch])
 
       const handleNewAcct = () => {
@@ -28,10 +28,10 @@ export const Accounts = () => {
 
 
       const acctArr = Object.values(accounts)
-      const transactionArr = Object.values(transactions)
+      // const transactionArr = Object.values(transactions)
 
 
-      if (!acctArr.length || !transactionArr.length) return null
+      if (!acctArr.length) return null
       return (
             <div id='accounts-entire-page'>
 

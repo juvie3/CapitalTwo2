@@ -39,6 +39,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.firstName}
                                     value={user.firstName}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -47,6 +48,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.lastName}
                                     value={user.lastName}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -55,6 +57,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.email}
                                     value={user.email}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -63,6 +66,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.street}
                                     value={user.street}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -71,6 +75,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.city}
                                     value={user.city}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -79,6 +84,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.state}
                                     value={user.state}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -87,6 +93,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.zipCode}
                                     value={user.zipCode}
+                                    readOnly
                                     />
                               </div>
                               <div className="outer-form-input">
@@ -95,6 +102,7 @@ export const AccountSavingsForm = () => {
                                     type='text'
                                     placeholder={user.phone}
                                     value={user.phone}
+                                    readOnly
                                     />
                               </div>
                               <div className="funding-question-form">

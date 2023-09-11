@@ -101,6 +101,7 @@ def update_account(id):
             return {"errors": form.errors}
 
 
+
 @accounts.route("/delete/<int:id>", methods=["DELETE"])
 @login_required
 def delete_account(id):
@@ -110,7 +111,15 @@ def delete_account(id):
             try:
                   db.session.delete(accountSelected)
                   db.session.commit()
-                  return redirect("/accounts")
+
+                  res = Account.query.filter(Account.user_id == current_user.id)
+
+                  response = [prod.to_dict() for prod in res]
+
+                  print(response)
+                  return response
+
+
             except Exception as error:
                   return { "errors": error }
 

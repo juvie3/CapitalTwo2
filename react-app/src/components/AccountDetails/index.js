@@ -9,6 +9,7 @@ import './styleAccountDetails.css'
 import OpenModalButton from "../OpenModalButton";
 import { AccountCheckingForm } from "../AccountCheckingForm";
 import { AccountFundUpdate } from "../AccountFundUpdate";
+import { AccountDelete } from "../AccountDelete";
 
 
 export const AccountDetails = () => {
@@ -79,6 +80,10 @@ export const AccountDetails = () => {
                               <div id='delete-butt-acct-details' className="grow pointer">
                               <i class="fa-solid fa-circle-minus"></i>
                                     {` Delete Account`}
+                                    <OpenModalButton
+                                    buttonText="Delete Account"
+                                    modalComponent={<AccountDelete account={account} />}
+                                    />
 
                                     </div>
 
