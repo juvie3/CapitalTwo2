@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { fetchCreateTransfer, fetchDeleteTransfer, fetchTransfers, fetchUpdateTransfer } from "../../store/transfersReducer"
 import './styleTransfers.css'
 import { useHistory } from "react-router-dom"
+import { fetchAccounts } from "../../store/accountsReducer"
 
 export const Transfers = () => {
       const dispatch = useDispatch()
@@ -11,8 +12,9 @@ export const Transfers = () => {
       const { accountId } = useParams()
       const [payee, setPayee] = useState("")
       const [amount, setAmount] = useState()
+      const [flag, setFlag] =useState(false)
 
-
+      const accounts = useSelector((state) => state.accounts ? state.accounts : {})
       const transfers = useSelector((state) => state.transfers ? state.transfers : {})
 
       const backToAccts = () => {
@@ -36,6 +38,12 @@ export const Transfers = () => {
 
       const send = async (id) => {
             await dispatch(fetchUpdateTransfer(id))
+            if (flag == true) {
+                  setFlag(false)
+            } else {
+                  setFlag(true)
+            }
+
       }
 
       const deleteTransfer = async (id) => {
@@ -44,17 +52,21 @@ export const Transfers = () => {
 
       useEffect(() => {
             dispatch(fetchTransfers())
-      }, [dispatch])
+            dispatch(fetchAccounts())
+      }, [dispatch, flag])
 
-
+      const acctArr = Object.values(accounts)
       const transferArray = Object.values(transfers)
 
+      const account = acctArr.find((account) => account.id == accountId)
       const transferArr = transferArray.filter((transfer) => transfer.accountId == accountId)
 
+      if (!account) return null
       return (
 
             <div id='transfers-entire-page'>
             <div id='inner-transfers-entire-page'>
+                  <div>Available funds: {account.funds}</div>
 
                   <form onSubmit={initialize}>
 
@@ -75,6 +87,7 @@ export const Transfers = () => {
                               placeholder="How much do you want to send?"
                               value={amount}
                               onChange={(e) => setAmount(e.target.value)}
+                              max={account.funds}
                               required
                               />
                         </label>
@@ -94,17 +107,44 @@ export const Transfers = () => {
                                     <div>
                                     {transfer.amount}
                                     </div>
+
                                     {
-                                          transfer.date_paid ?
-                                          <div>
-                                          {`Sent on ${transfer.date_paid}`}
-                                          </div>
+                                          transfer.amount <= account.funds ?
+
+
+                                                transfer.date_paid ?
+                                                <div>
+                                                {`Sent on ${transfer.date_paid}`}
+                                                </div>
+                                                :
+                                                <div className="pointer" onClick={()=>send(transfer.id)} >
+                                                Send it now!
+                                                </div>
+
+
+
                                           :
-                                          <div className="pointer" onClick={()=>send(transfer.id)} >
-                                          Send it now!
-                                          </div>
+
+
+                                                transfer.date_paid ?
+                                                <div>
+                                                {`Sent on ${transfer.date_paid}`}
+                                                </div>
+                                                :
+                                                <div>
+                                                Not enough funds to send.
+                                                </div>
+
+
 
                                     }
+
+
+
+
+
+
+
                                     {
                                           transfer.date_paid ?
                                           null :
