@@ -3,14 +3,21 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchCreateTransfer, fetchDeleteTransfer, fetchTransfers, fetchUpdateTransfer } from "../../store/transfersReducer"
 import './styleTransfers.css'
+import { useHistory } from "react-router-dom"
 
 export const Transfers = () => {
       const dispatch = useDispatch()
+      const history = useHistory()
       const { accountId } = useParams()
       const [payee, setPayee] = useState("")
       const [amount, setAmount] = useState()
 
+
       const transfers = useSelector((state) => state.transfers ? state.transfers : {})
+
+      const backToAccts = () => {
+            history.replace('/accounts')
+      }
 
       const initialize = async (e) => {
             e.preventDefault();
@@ -40,7 +47,9 @@ export const Transfers = () => {
       }, [dispatch])
 
 
-      const transferArr = Object.values(transfers)
+      const transferArray = Object.values(transfers)
+
+      const transferArr = transferArray.filter((transfer) => transfer.accountId == accountId)
 
       return (
 
@@ -69,6 +78,7 @@ export const Transfers = () => {
                               />
                         </label>
                         <button type="submit">Initialize</button>
+                        <div className="pointer" onClick={backToAccts}>See All Accounts</div>
 
 
                   </form>
@@ -89,7 +99,7 @@ export const Transfers = () => {
                                           {`Sent on ${transfer.date_paid}`}
                                           </div>
                                           :
-                                          <div onClick={()=>send(transfer.id)} >
+                                          <div className="pointer" onClick={()=>send(transfer.id)} >
                                           Send it now!
                                           </div>
 
@@ -97,7 +107,7 @@ export const Transfers = () => {
                                     {
                                           transfer.date_paid ?
                                           null :
-                                          <div onClick={()=>deleteTransfer(transfer.id)} >Delete</div>
+                                          <div className="pointer" onClick={()=>deleteTransfer(transfer.id)} >Delete</div>
 
                                     }
 
