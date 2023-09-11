@@ -64,6 +64,7 @@ export const Transfers = () => {
                               placeholder="Who are you sending money to?"
                               value={payee}
                               onChange={(e) => setPayee(e.target.value)}
+                              maxLength="200"
                               required
                               />
                         </label>

@@ -114,6 +114,8 @@ export const AccountCheckingForm = () => {
                                     placeholder='Enter Amount Here'
                                     value={funds}
                                     onChange={(e) => setFunds(e.target.value)}
+                                    min='0'
+                                    max='250000'
                                     required
                                     />
                               </div>
