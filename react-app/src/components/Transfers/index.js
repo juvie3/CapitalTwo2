@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchCreateTransfer, fetchTransfers } from "../../store/transfersReducer"
+import { fetchCreateTransfer, fetchTransfers, fetchUpdateTransfer } from "../../store/transfersReducer"
 import './styleTransfers.css'
 
 export const Transfers = () => {
@@ -20,15 +20,21 @@ export const Transfers = () => {
                   payee,
                   amount
             }
-            console.log('newwwwwww',newTransfer);
+
+            setPayee('')
+            setAmount('')
             await dispatch(fetchCreateTransfer(newTransfer))
+
+      }
+
+      const send = async (id) => {
+            await dispatch(fetchUpdateTransfer(id))
       }
 
       useEffect(() => {
             dispatch(fetchTransfers())
       }, [dispatch])
 
-      console.log('transfers', transfers);
 
       const transferArr = Object.values(transfers)
 
@@ -66,7 +72,7 @@ export const Transfers = () => {
                   {
                         transferArr.length ?
                         transferArr.map((transfer) => (
-                              <div id='individual-transfers'>
+                              <div id='individual-transfers' key={transfer.id} >
                                     <div>
                                     {transfer.payee}
                                     </div>
@@ -74,18 +80,18 @@ export const Transfers = () => {
                                     {transfer.amount}
                                     </div>
                                     {
-                                          transfer.paid_date ?
+                                          transfer.date_paid ?
                                           <div>
-                                          {`Sent on ${transfer.paid_date}`}
+                                          {`Sent on ${transfer.date_paid}`}
                                           </div>
                                           :
-                                          <div>
+                                          <div onClick={()=>send(transfer.id)} >
                                           Send it now!
                                           </div>
 
                                     }
                                     {
-                                          transfer.paid_date ?
+                                          transfer.date_paid ?
                                           null :
                                           <div>Delete</div>
 
