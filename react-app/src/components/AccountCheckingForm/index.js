@@ -1,15 +1,23 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { fetchCreateAccount } from "../../store/accountsReducer";
 import './styleAccountCheckingForm.css'
 import tileBack from './capTile.jpeg'
+import { FormsContext } from '../../context/forms'
 
 export const AccountCheckingForm = () => {
       const dispatch = useDispatch();
       const history = useHistory();
       const user = useSelector((state) => state.session.user)
       const [funds, setFunds] = useState()
+
+      const { form, setForm } = useContext(FormsContext)
+
+      const showForm = () => {
+            if (form === false) setForm(true)
+            if (form === true ) setForm(false)
+      }
 
       const submitForm = async (e) => {
             e.preventDefault()
@@ -18,6 +26,9 @@ export const AccountCheckingForm = () => {
                   account_type: 'checking',
                   funds
             }
+
+            if (form === false) setForm(true)
+            if (form === true ) setForm(false)
 
             await dispatch(fetchCreateAccount(newAccount))
             history.replace('/accounts')
@@ -121,6 +132,7 @@ export const AccountCheckingForm = () => {
                               </div>
                                     <div id='butt-div-form'>
                                     <button className="form-submit-butt-checking grow" type='submit'>Submit</button>
+                                    <div onClick={showForm} className="close-form grow">Close</div>
                                     </div>
                         </form>
 

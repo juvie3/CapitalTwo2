@@ -1,14 +1,22 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { fetchCreateAccount } from "../../store/accountsReducer";
 import '../AccountCheckingForm/styleAccountCheckingForm.css'
+import { FormsContext } from '../../context/forms'
 
 export const AccountSavingsForm = () => {
       const dispatch = useDispatch();
       const history = useHistory();
       const user = useSelector((state) => state.session.user)
       const [funds, setFunds] = useState()
+
+      const { save, setSave } = useContext(FormsContext)
+
+      const showSave = () => {
+            if (save === false) setSave(true)
+            if (save === true ) setSave(false)
+      }
 
       const submitForm = async (e) => {
             e.preventDefault()
@@ -17,6 +25,9 @@ export const AccountSavingsForm = () => {
                   account_type: 'savings',
                   funds
             }
+
+            if (save === false) setSave(true)
+            if (save === true ) setSave(false)
 
             await dispatch(fetchCreateAccount(newAccount))
             history.replace('/accounts')
@@ -121,6 +132,7 @@ export const AccountSavingsForm = () => {
                               </div>
                               <div id='butt-div-form'>
                                     <button className="form-submit-butt-checking grow" type='submit'>Submit</button>
+                                    <div onClick={showSave} className="close-form grow">Close</div>
                                     </div>
 
                         </form>

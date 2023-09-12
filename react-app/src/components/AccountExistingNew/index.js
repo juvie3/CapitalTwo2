@@ -4,14 +4,27 @@ import saveback from './cap-background-savings.png'
 import checkicon from './checkicon.png'
 import savingsicon from './savingsicon.png'
 import { AccountCheckingForm } from '../AccountCheckingForm'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { AccountSavingsForm } from '../AccountSavingsForm'
 import { useHistory } from 'react-router-dom'
+import { FormsContext } from '../../context/forms'
 
 
 export const AccountExistingNew = () => {
       const history = useHistory()
       const [newAcctType, setNewAcctType] = useState('')
+
+      const { form, setForm, save, setSave } = useContext(FormsContext)
+
+      const showForm = () => {
+            if (form === false) setForm(true)
+            if (form === true ) setForm(false)
+      }
+
+      const showSave = () => {
+            if (save === false) setSave(true)
+            if (save === true ) setSave(false)
+      }
 
       const settingAcctType = (type) => {
             setNewAcctType(type)
@@ -48,7 +61,7 @@ export const AccountExistingNew = () => {
                                           <li>24/7 mobile banking on the app</li>
                                           <li>70,000+ fee-free ATMs</li>
                                     </ul>
-                                    <div onClick={ () => settingAcctType('checking')} className='checking-saving-box-text-4-open-account-existing'>
+                                    <div onClick={showForm} className='checking-saving-box-text-4-open-account-existing'>
                                           <a id='anchor' href='#form-anchor'>Open account</a>
                                           </div>
 
@@ -62,13 +75,13 @@ export const AccountExistingNew = () => {
                   </div>
 
                   {
-                        newAcctType == 'checking' ? <div  id='check-form-render'>
+                        form === true ? <div  id='check-form-render'>
                               <AccountCheckingForm />
                               </div> : null
                   }
 
                   {
-                        newAcctType == 'savings' ? <div  id='savings-form-render'>
+                        save === true ? <div  id='savings-form-render'>
                               <AccountSavingsForm />
                               </div> : null
 
@@ -87,7 +100,7 @@ export const AccountExistingNew = () => {
                                           <li>No fees or minimums</li>
                                           <li>24/7 mobile banking on the app</li>
                                     </ul>
-                                    <div onClick={ () => settingAcctType('savings')}className='checking-saving-box-text-4-open-account-existing'>
+                                    <div onClick={showSave}className='checking-saving-box-text-4-open-account-existing'>
                                     <a id='anchor' href='#form-anchor'>Open account</a>
                                           </div>
                               </div>
