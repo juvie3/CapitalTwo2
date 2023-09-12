@@ -35,3 +35,7 @@ body {
 #demo-link:hover {
   cursor: pointer;
 }
+
+.test {
+  border: 1px solid red;
+}
