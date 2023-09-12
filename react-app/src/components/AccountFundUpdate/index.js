@@ -28,7 +28,7 @@ export const AccountFundUpdate = ({ account }) => {
 
             await dispatch(fetchUpdateAccount(accountUpdated))
             closeModal()
-            history.replace('/accounts')
+            history.replace(`/accounts/${account.id}`)
 
       }
 

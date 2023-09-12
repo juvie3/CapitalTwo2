@@ -153,6 +153,7 @@ export const Transfers = () => {
                                           placeholder="How much do you want to send?"
                                           value={amount}
                                           onChange={(e) => setAmount(e.target.value)}
+                                          min="1"
                                           max={account.funds}
                                           required
                                           />
