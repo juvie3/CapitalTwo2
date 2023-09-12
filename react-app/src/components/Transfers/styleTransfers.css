@@ -174,6 +174,10 @@
       text-align: center;
 }
 
+#date-paid-transfers-page {
+      font-size: 17px;
+}
+
 #amount-transfers-page {
       font-size: 18px;
 }

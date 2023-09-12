@@ -43,6 +43,10 @@ export const LandingPage = () => {
     }
   };
 
+  const goSignUp = () => {
+    history.replace('/signup')
+  }
+
   return (
     <div id="landing-entire-page">
       <div id="inner-div-landing-entire-page">
@@ -64,8 +68,8 @@ export const LandingPage = () => {
                     required
                   />
                 </div>
-                <div className="lower-label-sign-in-landing-page">
-                  Remember me
+                <div onClick={goSignUp} className="lower-label-sign-in-landing-page">
+                  Sign up as a new user
                 </div>
               </div>
               <div id="username-div-sign-in-landing-page">
@@ -81,7 +85,7 @@ export const LandingPage = () => {
                   />
                 </div>
                 <div className="lower-label-sign-in-landing-page">
-                  Forgot password?
+                  {/* Forgot password? */}
                 </div>
               </div>
               <div id="username-div-sign-in-landing-page">
@@ -110,7 +114,7 @@ export const LandingPage = () => {
               Check for pre-approved offers and choose the one that's best for
               you.
             </div>
-            <div id="first-img-div-4-landing-page">Get started</div>
+            {/* <div className="no" id="first-img-div-4-landing-page">Get started</div> */}
           </div>
         </div>
 
@@ -123,7 +127,7 @@ export const LandingPage = () => {
               your credit score.
             </div>
             <div className="text-3-tab-flower-car">
-              See if I'm Pre-Approved ›
+              {/* See if I'm Pre-Approved › */}
             </div>
           </div>
           <div className="tab-flower-car-div">
@@ -133,7 +137,9 @@ export const LandingPage = () => {
               Keep your money growing with one of the best savings rates in
               America.
             </div>
-            <div className="text-3-tab-flower-car">Compare accounts ›</div>
+            <div className="text-3-tab-flower-car">
+              {/* Compare accounts › */}
+              </div>
           </div>
           <div className="tab-flower-car-div">
             <img className="image-tab-flower-care" src={car} />
@@ -143,7 +149,7 @@ export const LandingPage = () => {
               dealer.
             </div>
             <div className="text-3-tab-flower-car">
-              Check out Auto Navigator ›
+              {/* Check out Auto Navigator › */}
             </div>
           </div>
         </div>
@@ -153,7 +159,7 @@ export const LandingPage = () => {
           <div id="help-text-2-landing-page">
             We'll offer ideas to help you meet your goal.
           </div>
-          <div id="help-text-3-landing-page">See suggestions</div>
+          {/* <div className="no" id="help-text-3-landing-page">See suggestions</div> */}
         </div>
 
         <div id="shoppers-deals-div-landing-page">
@@ -167,7 +173,7 @@ export const LandingPage = () => {
               Capital One Shopping is a free tool that instantly searches for
               savings and applies them to your cart.
             </div>
-            <div id="text-4-right-deal-div">Add Capital One Shopping ›</div>
+            {/* <div id="text-4-right-deal-div">Add Capital One Shopping ›</div> */}
           </div>
         </div>
 
@@ -179,7 +185,7 @@ export const LandingPage = () => {
               Get help building your credit score and financial future with our
               free app.
             </div>
-            <div id="text-4-right-deal-div">Get started ›</div>
+            {/* <div id="text-4-right-deal-div">Get started ›</div> */}
           </div>
           <img id="deal-image-landing-page" src={wellness} />
         </div>
@@ -187,7 +193,7 @@ export const LandingPage = () => {
         {/* <div id='more-text-landing-page' >WE'RE MORE THAN JUST A BANK</div>
 
                         <div id='temp-footer'></div> */}
-        <img id="bullHorn-landing-page" src={bullHorn} />
+        {/* <img id="bullHorn-landing-page" src={bullHorn} /> */}
       </div>
     </div>
   );

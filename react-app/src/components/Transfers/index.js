@@ -280,7 +280,7 @@ export const Transfers = () => {
                                           </div>
                                           <div id='payee-transfers-page'>{transfer.payee}</div>
                                           <div>
-                                          <div>
+                                          <div id='date-paid-transfers-page'>
                                                 {`Sent ${transfer.date_paid.slice(0,16)}`}
                                           </div>
 

@@ -48,6 +48,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+  visibility: hidden;
 }
 
 .nav-item {
@@ -55,7 +56,7 @@
 }
 
 .nav-item:hover {
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 #right-panel-inner-div-nav {
@@ -71,7 +72,8 @@
 }
 
 .nav-icon:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: not-allowed;
 }
 
 #sign-in-div-nav {

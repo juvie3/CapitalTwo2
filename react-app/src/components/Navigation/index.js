@@ -30,6 +30,11 @@ function Navigation({ isLoaded }) {
     setShowMenu(true);
   };
 
+  const logoLink = () => {
+    if (user) history.replace('/accounts')
+    else history.replace('/')
+  }
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -60,7 +65,7 @@ function Navigation({ isLoaded }) {
     <div id="nav-entire-page">
       <div id="inner-div-nav-entire-page">
         <div id="left-panel-inner-div-nav">
-          <img id="logo-nav" src={logo} />
+          <img onClick={logoLink} className='pointer' id="logo-nav" src={logo} />
 
           <div id="nav-bar">
             <div className="nav-item">Credit Cards</div>
@@ -73,11 +78,11 @@ function Navigation({ isLoaded }) {
         </div>
 
         <div id="right-panel-inner-div-nav">
-          <img src={search} className="nav-icon grow-big" />
-          <img src={question} className="nav-icon grow-big" />
-          <img src={map} className="nav-icon grow-big" />
+          {/* <img src={search} className="nav-icon grow-big" /> */}
+          {/* <img src={question} className="nav-icon grow-big" /> */}
+          {/* <img src={map} className="nav-icon grow-big" /> */}
           <div id="sign-in-div-nav" onClick={openMenu}>
-            <img src={profile} className="nav-icon grow-big" />
+            <img src={profile} className="nav-icon grow-big pointer" />
             {
               user ? <div className="hidden">Sign In</div> : <div id="sign-in-nav">Sign In</div>
             }
