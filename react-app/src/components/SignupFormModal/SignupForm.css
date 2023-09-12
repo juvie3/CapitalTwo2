@@ -1,0 +1,36 @@
+
+
+  .signup-title {
+      font-weight: 700;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: -20px;
+      padding-top: 20px;
+  }
+
+  .signup-form {
+      display: grid;
+      grid-template-rows: repeat(11, 1fr);
+      row-gap: 10px;
+      padding: 0 50px;
+  }
+
+  .signup-field {
+      display: grid;
+      width: 300px;
+  }
+
+  .signup-button {
+      background-color: rgb(2,118,177);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin: 20px 0 40px 0;
+      padding: 10px 0;
+  }
+
+
+  .signup-button:hover {
+      background-color: rgb(0, 87, 150);
+      cursor: pointer;
+  }

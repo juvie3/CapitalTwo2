@@ -41,15 +41,15 @@ function SignupFormModal() {
 	};
 
 	return (
-		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+		<div className="signup-modal">
+			<div className="signup-title">Sign Up</div>
+			<form className="signup-form" onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
+				<label className="signup-field">
 					Email
 					<input
 						type="text"
@@ -60,7 +60,7 @@ function SignupFormModal() {
 						maxLength="250"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Username
 					<input
 						type="text"
@@ -70,7 +70,7 @@ function SignupFormModal() {
 						maxLength="40"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					First Name
 					<input
 						type="text"
@@ -80,7 +80,7 @@ function SignupFormModal() {
 						maxLength="99"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Last Name
 					<input
 						type="text"
@@ -90,7 +90,7 @@ function SignupFormModal() {
 						maxLength="99"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Street
 					<input
 						type="text"
@@ -100,7 +100,7 @@ function SignupFormModal() {
 						maxLength="250"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					City
 					<input
 						type="text"
@@ -110,7 +110,7 @@ function SignupFormModal() {
 						maxLength="250"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					State
 					<input
 						type="text"
@@ -120,7 +120,7 @@ function SignupFormModal() {
 						maxLength="250"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Zip Code
 					<input
 						type="text"
@@ -130,7 +130,7 @@ function SignupFormModal() {
 						maxLength="250"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Phone Number
 					<input
 						type="text"
@@ -140,7 +140,7 @@ function SignupFormModal() {
 						maxLength="35"
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Password
 					<input
 						type="password"
@@ -149,7 +149,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className="signup-field">
 					Confirm Password
 					<input
 						type="password"
@@ -158,9 +158,9 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<button type="submit">Sign Up</button>
+				<button className='signup-button grow' type="submit">Sign Up</button>
 			</form>
-		</>
+		</div>
 	);
 }
 

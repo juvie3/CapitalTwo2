@@ -54,126 +54,202 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div id='signup-entire-page'>
+      <div id='inner-signup-page'>
+
+
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            pattern="^\S+@\S+$"
-            required
-            maxLength="250"
-          />
-        </label>
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            maxLength="40"
-          />
-        </label>
-        <label>
-          First Name
-          <input
-            type="text"
-            value={first_name}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-            maxLength="99"
-          />
-        </label>
-        <label>
-          Last Name
-          <input
-            type="text"
-            value={last_name}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-            maxLength="99"
-          />
-        </label>
-        <label>
-          Street
-          <input
-            type="text"
-            value={street}
-            onChange={(e) => setStreet(e.target.value)}
-            required
-            maxLength="250"
-          />
-        </label>
-        <label>
-          City
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-            maxLength="250"
-          />
-        </label>
-        <label>
-          State
-          <input
-            type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            required
-            maxLength="250"
-          />
-        </label>
-        <label>
-          Zip Code
-          <input
-            type="text"
-            value={zip_code}
-            onChange={(e) => setZipCode(e.target.value)}
-            required
-            maxLength="250"
-          />
-        </label>
-        <label>
-          Phone Number
-          <input
-            type="text"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-            maxLength="35"
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
+
+
+      <form id='form-signup-page' onSubmit={handleSubmit}>
+      <div id='whole-form-signup-page'>
+      <div id='email-signup-page'>
+
+
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <label>
+            Email
+            <input id='email-input-signup-page'
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              pattern="^\S+@\S+$"
+              required
+              maxLength="250"
+            />
+          </label>
+
+          </div>
+
+          <div id='username-signup-page'>
+
+          <label>
+            Username
+            <input id='username-input-signup-page'
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              maxLength="40"
+            />
+          </label>
+
+          </div>
+
+
+          <div id='firstname-signup-page'>
+            <label>
+              First Name
+              <input id='firstname-input-signup-page'
+                type="text"
+                value={first_name}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+                maxLength="99"
+              />
+            </label>
+
+
+          </div>
+
+          <div id='lastname-signup-page'>
+
+          <label>
+            Last Name
+            <input id='lastname-input-signup-page'
+              type="text"
+              value={last_name}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              maxLength="99"
+            />
+          </label>
+
+          </div>
+
+              <div>
+            <label>
+              Street
+              <input id='street-input-signup-page'
+                type="text"
+                value={street}
+                onChange={(e) => setStreet(e.target.value)}
+                required
+                maxLength="250"
+              />
+            </label>
+
+
+              </div>
+
+
+              <div>
+
+          <label>
+            City
+            <input id='city-input-signup-page'
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+              maxLength="250"
+            />
+          </label>
+
+              </div>
+
+              <div>
+
+          <label>
+            State
+            <input id='state-input-signup-page'
+              type="text"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              required
+              maxLength="250"
+            />
+          </label>
+
+              </div>
+
+              <div>
+
+          <label>
+            Zip Code
+            <input id='zip-input-signup-page'
+              type="text"
+              value={zip_code}
+              onChange={(e) => setZipCode(e.target.value)}
+              required
+              maxLength="250"
+            />
+          </label>
+
+
+              </div>
+
+              <div>
+
+          <label>
+            Phone Number
+            <input id='phone-input-signup-page'
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              maxLength="35"
+            />
+          </label>
+
+              </div>
+
+              <div id='password-signup-page'>
+
+          <label>
+            Password
+            <input id='password-input-signup-page'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+
+              </div>
+
+              <div id='confirm-password-signup-page'>
+
+            <label>
+              Confirm Password
+              <input id='confirm-password-input-signup-page'
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </label>
+
+
+              </div>
+
+
+
+
+
+      </div>
+
+
+
+
+        <button id='signup-butt-signup-page' type="submit">Sign Up</button>
       </form>
-    </>
+      </div>
+    </div>
   );
 }
 
