@@ -158,7 +158,7 @@ export const Transfers = () => {
                                           required
                                           />
                                     </label>
-                                    <button className="grow pointer" type="submit">Pend Transfer</button>
+                                    <button id='pend-transfer' className="grow pointer" type="submit">Pend Transfer</button>
 
 
 
@@ -230,7 +230,7 @@ export const Transfers = () => {
                                                 {`Sent on ${transfer.date_paid}`}
                                                 </div>
                                                 :
-                                                <div>
+                                                <div id='not-enough'>
                                                 Not Enough Funds
                                                 </div>
 

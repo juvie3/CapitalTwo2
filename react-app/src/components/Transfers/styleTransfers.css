@@ -14,7 +14,7 @@
 }
 
 #transfer-upper-div {
-      width: 1000px;
+      width: 70vw;
 }
 
 #inner-transfer-upper-div {
@@ -34,7 +34,7 @@
 }
 
 #outer-div-white-upper-boxshadow-transfers-page {
-      width: 1000px;
+      width: 80vw;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -47,7 +47,7 @@
 }
 
 #white-upper-boxshadow-transfers-page {
-      width: 900px;
+      width: 70vw;
 }
 
 #acct-number-transfers {
@@ -87,6 +87,8 @@
       /* padding: 10px 0; */
 }
 
+
+
 #main-transfer-form > button {
       border: none;
       background-color: white;
@@ -117,7 +119,7 @@
 }
 
 #transfer-div-transfer-page {
-      width: 900px;
+      width: 70vw;
 }
 
 #pending-text-transfers-page {
@@ -209,4 +211,93 @@
 
 #individual-transfers {
       margin: 30px 20px;
+}
+
+@media (max-width: 1165px) {
+      #main-transfer-form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 1rem;
+            font-size: 12px;
+            /* padding: 10px 0; */
+      }
+
+      #transfer-payee-input {
+            height: 85%;
+            width: 275px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+      }
+
+      #transfer-amount-input {
+            height: 85%;
+            width: 275px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+      }
+
+      #main-transfer-form > button {
+            border: none;
+            background-color: white;
+            color: rgb(2,118,177);
+            border: 1px solid rgb(2,118,177);
+            font-size: 15px;
+            border-radius: 4px;
+      }
+
+      #date-paid-transfers-page {
+            font-size: 14px;
+      }
+
+      #amount-transfers-page {
+            font-size: 15px;
+      }
+
+      #month-today-transfer-page {
+            font-size: 12px;
+            margin-left: 50px;
+      }
+
+      #date-today-transfers-page {
+            font-size: 16px;
+            margin-left: 50px;
+      }
+
+      #payee-transfers-page {
+            font-size: 18px;
+      }
+
+      #send-butt-transfers-page {
+            color: rgb(2,118,177);
+            border: 1px solid rgb(2,118,177);
+            width: 88px;
+            padding: 0px 3px;
+            border-radius: 4px;
+            margin-bottom: 1px;
+            font-size: 15px;
+      }
+
+      #delete-butt-transfers-page {
+            color: rgb(209,46,47);
+            border: 1px solid rgb(209,46,47);
+            width: 88px;
+            padding: 0px 3px;
+            margin-top: 1px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 15px;
+      }
+
+      #not-enough {
+            font-size: 15px;
+      }
+
+      #transfer-upper-div {
+            width: 80vw;
+      }
+
 }

@@ -16,7 +16,8 @@
 }
 
 #inner-exit-new-open-account-upper-div {
-      width: 1125px;
+      /* width: 1125px; */
+      width: 80vw;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -47,7 +48,7 @@
 
 .checking-saving-div-text-open-account-existing {
       position: absolute;
-      width: 1000px;
+      width: 75vw;
       left: 50%;
       transform: translateX(-50%);
 }
@@ -141,6 +142,30 @@
       left: 50%;
       transform: translateX(-50%);
       top: 35px;
+}
+
+@media (max-width: 1225px) {
+      #check-form-render {
+            position: fixed;
+            animation:
+                  slide-down 1500ms forwards,
+                  fade-in 1500ms forwards;
+            z-index: 3;
+            left: 40%;
+            transform: translateX(-50%);
+            top: 35px;
+            /* left: 400px; */
+      }
+      #savings-form-render {
+            position: fixed;
+            animation:
+                  slide-up 1500ms forwards,
+                  fade-in 1500ms forwards;
+            z-index: 3;
+            left: 40%;
+            transform: translateX(-50%);
+            top: 35px;
+      }
 }
 
 #anchor {
