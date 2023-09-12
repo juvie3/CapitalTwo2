@@ -22,7 +22,11 @@ export const AccountTiles = ({ account }) => {
       {account.accountType == "Checking" ? (
         <div id="account-tile">
           <div id="left-account-tile">
-            <div id="left-text-1-acct-tile">{`360 ${account.accountType} Acct`}</div>
+            <div id="left-text-1-text-holder">
+              <div id="left-text-1-acct-tile">{`360 ${account.accountType}`}</div>
+              <div id='left-text-1-A-acct-tile'>{`Acct #${account.id}`}</div>
+            </div>
+
             <div id="left-text-2-acct-tile">{dollar.format(account.funds)}</div>
             <div id="left-text-3-acct-tile">AVAILABLE BALANCE</div>
           </div>
@@ -39,7 +43,10 @@ export const AccountTiles = ({ account }) => {
       ) : (
         <div id="account-tile" style={{ backgroundImage: `url(${tileBack})` }}>
           <div id="left-account-tile">
-            <div id="left-text-1-acct-tile">{`360 ${account.accountType} Acct`}</div>
+          <div id="left-text-1-text-holder">
+              <div id="left-text-1-acct-tile">{`360 ${account.accountType}`}</div>
+              <div id='left-text-1-A-acct-tile'>{`Acct #${account.id}`}</div>
+            </div>
             <div id="left-text-2-acct-tile">{dollar.format(account.funds)}</div>
             <div id="left-text-3-acct-tile">AVAILABLE BALANCE</div>
           </div>

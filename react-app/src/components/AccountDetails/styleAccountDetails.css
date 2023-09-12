@@ -33,6 +33,13 @@
 #avail-acct-details {
       color: white;
       font-size: 12px;
+      /* margin-left: 31px; */
+}
+
+#acct-number-details {
+      color: white;
+      font-size: 14px;
+      /* margin-left: 30px; */
 }
 
 #funds-acct-details {

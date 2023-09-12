@@ -21,6 +21,11 @@ export const Transfers = () => {
             history.replace('/accounts')
       }
 
+      let dollar = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+      });
+
       const initialize = async (e) => {
             e.preventDefault();
 
@@ -61,41 +66,101 @@ export const Transfers = () => {
       const account = acctArr.find((account) => account.id == accountId)
       const transferArr = transferArray.filter((transfer) => transfer.accountId == accountId)
 
+      const goDetails = () => {
+            history.replace(`/accounts/${account.id}`)
+      }
+
+      if (account?.accountType == "checking") account.accountType = "Checking";
+      if (account?.accountType == "savings") account.accountType = "Savings";
+
       if (!account) return null
       return (
 
             <div id='transfers-entire-page'>
-            <div id='inner-transfers-entire-page'>
-                  <div>Available funds: {account.funds}</div>
+            <div id='inner-transfers-entire-page-1'>
+                  <div id='transfer-upper-div'>
+                  <div id='inner-transfer-upper-div'>
 
-                  <form onSubmit={initialize}>
+                  <div>
+                        <div id='type-account-details'>Transfers</div>
+                        <div id='all-accts-butt' className="grow pointer" onClick={backToAccts}>See All Accounts</div>
 
-                        <label>
-                              <input
-                              type="text"
-                              placeholder="Who are you sending money to?"
-                              value={payee}
-                              onChange={(e) => setPayee(e.target.value)}
-                              maxLength="200"
-                              required
-                              />
-                        </label>
-                        <label>
-                              <input
-                              type="number"
-                              step="0.01"
-                              placeholder="How much do you want to send?"
-                              value={amount}
-                              onChange={(e) => setAmount(e.target.value)}
-                              max={account.funds}
-                              required
-                              />
-                        </label>
-                        <button type="submit">Initialize</button>
-                        <div className="pointer" onClick={backToAccts}>See All Accounts</div>
+                  </div>
+                  <div>
+                        <div id='avail-acct-details'>AVAILABLE BALANCE</div>
+                        <div id='funds-acct-details'>{dollar.format(account.funds)}</div>
+                        {/* <div id='avail-acct-details'>{`From your ${account.accountType}`}</div> */}
+
+                  </div>
+
+                  <div>
+                        <div onClick={goDetails} id='transfer-butt-acct-details' className="grow pointer">Account Details</div>
+
+                  </div>
+
+                  </div>
 
 
-                  </form>
+                  </div>
+            </div>
+
+            <div id='inner-transfers-entire-page-2'>
+                  <div id="transfer-div-transfer-page">
+                        <div id='acct-number-transfers'>{`${account.accountType} Account #${account.id}`}</div>
+                        <div id='transfer-text-transfers-page'>Money Transfers</div>
+
+                        <div id="main-transfer-bar">
+
+                        <form id="main-transfer-form" onSubmit={initialize}>
+
+                              <label>
+                                    <input id='transfer-payee-input'
+                                    type="text"
+                                    placeholder="Who are you sending money to?"
+                                    value={payee}
+                                    onChange={(e) => setPayee(e.target.value)}
+                                    maxLength="200"
+                                    required
+                                    />
+                              </label>
+                              <label>
+                                    <input id='transfer-amount-input'
+                                    type="number"
+                                    step="0.01"
+                                    placeholder="How much do you want to send?"
+                                    value={amount}
+                                    onChange={(e) => setAmount(e.target.value)}
+                                    max={account.funds}
+                                    required
+                                    />
+                              </label>
+                              <button className="grow pointer" type="submit">Start Transfer</button>
+
+
+
+                              </form>
+
+
+                        </div>
+
+
+                        <div id='pending-text-transfers-page'>Pending Transfers</div>
+
+                        <div id='pending-transfer-category-bar'>
+                              <div>DATE</div>
+                              <div>MONEY RECEIVER</div>
+                              <div>STATUS</div>
+                              <div>AMOUNT</div>
+                        </div>
+
+
+
+
+                  </div>
+            </div>
+
+
+
 
                   {
                         transferArr.length ?
@@ -159,7 +224,7 @@ export const Transfers = () => {
                   }
 
 
-            </div>
+
             </div>
 
       )

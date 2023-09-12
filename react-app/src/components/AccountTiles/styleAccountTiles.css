@@ -33,13 +33,31 @@
       width: 54%;
 }
 
+#left-text-1-text-holder {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-left: 25px;
+      padding-top: 25px;
+      padding-bottom: 5px;
+      gap: 0.5rem;
+}
+
 #left-text-1-acct-tile {
       font-size: 24px;
       color: white;
       font-weight: 200;
-      padding-left: 25px;
-      padding-top: 25px;
-      padding-bottom: 5px;
+
+}
+
+#left-text-1-A-acct-tile {
+      font-size: 16px;
+      color: white;
+      font-weight: 200;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 4px;
 }
 
 #left-text-2-acct-tile {
