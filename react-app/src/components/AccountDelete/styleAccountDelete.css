@@ -1,6 +1,12 @@
 
+#delete-acct-entire-page {
+      /* border: 3px solid rgb(209,46,47); */
+      border-radius: 5px;
+}
+
 #delete-account-page-question-text {
       margin: -10px 20px 25px 20px;
+      background-color: rgb(209,46,47);
 }
 
 .delete-acct-butt-holder {
@@ -17,9 +23,19 @@
 #yes-butt-delete-acct {
       width: 50%;
       margin-top: 10px;
+      color: rgb(171, 171, 171)
 }
 
 #no-butt-delete-acct {
       width: 50%;
       margin-top: 10px;
+      color: rgb(171, 171, 171)
+}
+
+#yes-butt-delete-acct:hover {
+      color: rgb(209,46,47);
+}
+
+#no-butt-delete-acct:hover {
+      color: rgb(209,46,47);
 }

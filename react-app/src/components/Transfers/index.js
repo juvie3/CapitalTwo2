@@ -5,6 +5,9 @@ import { fetchCreateTransfer, fetchDeleteTransfer, fetchTransfers, fetchUpdateTr
 import './styleTransfers.css'
 import { useHistory } from "react-router-dom"
 import { fetchAccounts } from "../../store/accountsReducer"
+import { TransferConfirm } from "../TransferConfirm"
+import OpenModalButton from "../OpenModalButton";
+
 
 export const Transfers = () => {
       const dispatch = useDispatch()
@@ -12,7 +15,7 @@ export const Transfers = () => {
       const { accountId } = useParams()
       const [payee, setPayee] = useState("")
       const [amount, setAmount] = useState()
-      const [flag, setFlag] =useState(false)
+      const [flagReload, setFlagReload] =useState(false)
 
       const accounts = useSelector((state) => state.accounts ? state.accounts : {})
       const transfers = useSelector((state) => state.transfers ? state.transfers : {})
@@ -60,12 +63,18 @@ export const Transfers = () => {
 
       }
 
+      const newTransfer = {
+            accountId,
+            payee,
+            amount
+      }
+
       const send = async (id) => {
             await dispatch(fetchUpdateTransfer(id))
-            if (flag == true) {
-                  setFlag(false)
+            if (flagReload == true) {
+                  setFlagReload(false)
             } else {
-                  setFlag(true)
+                  setFlagReload(true)
             }
 
       }
@@ -77,7 +86,7 @@ export const Transfers = () => {
       useEffect(() => {
             dispatch(fetchTransfers())
             dispatch(fetchAccounts())
-      }, [dispatch, flag])
+      }, [dispatch, flagReload])
 
       const acctArr = Object.values(accounts)
       const transferArray = Object.values(transfers)
@@ -158,7 +167,9 @@ export const Transfers = () => {
                                           required
                                           />
                                     </label>
-                                    <button id='pend-transfer' className="grow pointer" type="submit">Pend Transfer</button>
+                                    <button id='pend-transfer' className="grow pointer" type="submit">
+                                    Pend Transfer
+                                    </button>
 
 
 
@@ -216,8 +227,12 @@ export const Transfers = () => {
                                                 </div>
                                                 :
 
-                                                <div id='send-butt-transfers-page' className="grow pointer" onClick={()=>send(transfer.id)} >
-                                                Send Money
+                                                <div id='send-butt-transfers-page' className="pointer">
+
+                                                <OpenModalButton
+                                                buttonText="Send Money"
+                                                modalComponent={<TransferConfirm transfer={transfer} />}
+                                                />
                                                 </div>
 
 
@@ -238,7 +253,7 @@ export const Transfers = () => {
 
                                           }
 
-                                          <div id='delete-butt-transfers-page' className="grow pointer" onClick={()=>deleteTransfer(transfer.id)} >Delete</div>
+                                          <div id='delete-butt-transfers-page' className="pointer" onClick={()=>deleteTransfer(transfer.id)} >Delete</div>
 
 
                                           </div>

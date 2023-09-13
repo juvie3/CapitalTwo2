@@ -1,0 +1,29 @@
+
+#send-butt-confirm-transfer {
+      width: 50%;
+      margin-top: 10px;
+      color: rgb(171, 171, 171)
+}
+
+#close-butt-confirm-transfer {
+      width: 50%;
+      margin-top: 10px;
+      color: rgb(171, 171, 171)
+}
+
+#send-butt-confirm-transfer:hover {
+      color: rgb(2,118,177);
+}
+
+#close-butt-confirm-transfer:hover {
+      color: rgb(2,118,177);
+}
+
+#ready-to-send {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: rgb(171,171,171);
+      margin-bottom: -25px;
+      margin-top: 20px;
+}

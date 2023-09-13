@@ -157,23 +157,37 @@
       font-size: 20px;
 }
 
-#send-butt-transfers-page {
+#send-butt-transfers-page > button {
+      background-color: white;
       color: rgb(2,118,177);
       border: 1px solid rgb(2,118,177);
-      width: 88px;
-      padding: 0px 3px;
+      width: 100px;
+      padding: 2px 0;
       border-radius: 4px;
       margin-bottom: 1px;
+      font-size: 16px;
 }
 
 #delete-butt-transfers-page {
       color: rgb(209,46,47);
       border: 1px solid rgb(209,46,47);
-      width: 88px;
+      width: 92px;
       padding: 0px 3px;
       margin-top: 1px;
       border-radius: 4px;
       text-align: center;
+}
+
+#send-butt-transfers-page > button:hover {
+      background-color: rgb(2,118,177);
+      color: white;
+      cursor: pointer;
+}
+
+#delete-butt-transfers-page:hover {
+      color: white;
+      background-color: rgb(209,46,47);
+
 }
 
 #date-paid-transfers-page {
@@ -272,23 +286,10 @@
       }
 
       #send-butt-transfers-page {
-            color: rgb(2,118,177);
-            border: 1px solid rgb(2,118,177);
-            width: 88px;
-            padding: 0px 3px;
-            border-radius: 4px;
-            margin-bottom: 1px;
             font-size: 15px;
       }
 
       #delete-butt-transfers-page {
-            color: rgb(209,46,47);
-            border: 1px solid rgb(209,46,47);
-            width: 88px;
-            padding: 0px 3px;
-            margin-top: 1px;
-            border-radius: 4px;
-            text-align: center;
             font-size: 15px;
       }
 
