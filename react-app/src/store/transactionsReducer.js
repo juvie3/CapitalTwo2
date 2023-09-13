@@ -23,7 +23,7 @@ const initialState = {}
 export const transactionsReducer = (state = initialState, action) => {
       switch (action.type) {
             case LOAD_TRANSACTIONS:
-                  return { ...state, ...action.transactions }
+                  return { ...action.transactions }
             default:
                   return state
       }

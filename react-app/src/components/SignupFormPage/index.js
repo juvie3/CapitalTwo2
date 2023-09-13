@@ -256,7 +256,6 @@ function SignupFormPage() {
               placeholder="10 digits, no dashes"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              pattern="^\S+-\S+\-\S+$"
               required
               minLength="10"
               maxLength="10"
