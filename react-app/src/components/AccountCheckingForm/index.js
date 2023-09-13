@@ -41,7 +41,7 @@ export const AccountCheckingForm = () => {
                   <div id='inner-checking-form-entire-page'>
                         <div className="form-title-1">New Checking Account Application</div>
                         <div className="form-title-2">Here's what we have so far</div>
-                        <div className="form-title-3">We prefilled some of your information that we already have to make it fast and easy.</div>
+                        <div className="form-title-3">We prefilled some of your information that we already have to make it easy.</div>
 
 
                         <form onSubmit={submitForm}>

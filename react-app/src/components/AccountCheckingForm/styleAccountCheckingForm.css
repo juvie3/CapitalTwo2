@@ -38,6 +38,7 @@
 .form-title-3 {
       padding: 0 25px;
       margin-bottom: 40px;
+      font-weight: 300;
 }
 
 .outer-form-input {
@@ -49,18 +50,22 @@
       gap: 1.5rem;
       padding: 0 25px;
       margin-bottom: 5px;
+      font-weight: 200;
 }
 
 .form-label {
       display: grid;
       justify-items: end;
       align-items: center;
-      font-size: 23px;
+      font-size: 18px;
+      font-weight: 100;
 }
 
 .form-input {
-      font-size: 23px;
+      font-size: 20px;
       border: none;
+      outline: none;
+
 }
 
 .funding-question-form {
@@ -77,6 +82,7 @@
       padding: 5px 10px;
       border-radius: 5px;
       margin-bottom: 10px;
+      font-size: 18px;
 }
 
 .funding-question-input {

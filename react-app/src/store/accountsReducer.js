@@ -98,7 +98,7 @@ const initialState = {}
 export const accountsReducer = (state = initialState, action) => {
       switch (action.type) {
             case LOAD_ACCOUNTS:
-                  return { ...state, ...action.accounts }
+                  return { ...action.accounts }
             case DELETE_ACCOUNT:
                   return { ...state.accounts }
             default:

@@ -91,7 +91,7 @@ function SignupFormPage() {
             Username
             <input id='username-input-signup-page'
               type="text"
-						  placeholder="Min of 3 char"
+              placeholder="Min of 3 char"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -275,7 +275,7 @@ function SignupFormPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               minLength="8"
-						  maxLength="200"
+              maxLength="200"
               required
             />
           </label>
@@ -291,7 +291,7 @@ function SignupFormPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 minLength="8"
-						    maxLength="200"
+                maxLength="200"
                 required
               />
             </label>

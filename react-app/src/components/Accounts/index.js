@@ -30,6 +30,8 @@ export const Accounts = () => {
       const acctArr = Object.values(accounts)
       // const transactionArr = Object.values(transactions)
 
+      console.log(acctArr, '===================');
+
 
       if (acctArr.length) {
 
