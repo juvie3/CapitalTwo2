@@ -55,13 +55,17 @@ export const fetchCreateTransfer = (transfer) => async (dispatch) => {
 
 }
 
-export const fetchUpdateTransfer = (id) => async (dispatch) => {
+export const fetchUpdateTransfer = (transfer) => async (dispatch) => {
 
-      console.log('id', id);
+      const { id, phone } = transfer
+
+      const newTransfer = { phone }
 
 
       const res = await fetch(`/api/transfers/send/${id}`, {
-            method: "POST"
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newTransfer),
       })
 
       if (res.ok) {

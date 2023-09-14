@@ -27,3 +27,27 @@
       margin-bottom: -25px;
       margin-top: 20px;
 }
+
+#for-demo-users {
+      text-align: center;
+}
+
+#send-demo-1 {
+      text-align: center;
+      color: rgb(2,118,177);
+      border: 1px solid rgb(2,118,177);
+      border-radius: 4px;
+      margin: 5px 145px 0 145px;
+}
+
+#send-demo-2 {
+      text-align: center;
+      color: rgb(2,118,177);
+      border: 1px solid rgb(2,118,177);
+      border-radius: 4px;
+      margin: 5px 145px 0 145px;
+}
+
+#butt-holder-transfer-confirm {
+      margin-top: 15px;
+}

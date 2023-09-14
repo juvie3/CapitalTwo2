@@ -5,11 +5,14 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='demo', email='demo@aa.io', password='password', first_name='Demo', last_name='User', street='941 Summer Drive', city='Logansport', state='IN', zip_code='46947', phone='206-342-8631')
+        username='demo-1', email='demo@aa.io', password='password', first_name='Demo1', last_name='User', street='941 Summer Drive', city='Logansport', state='IN', zip_code='46947', phone='2063428631'
+        )
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', first_name='Marnie', last_name='Jones', street='9072 West Nichols Street', city='Carollton', state='GA', zip_code='30117', phone='717-550-1675')
+        username='demo-2', email='demo2@aa.io', password='password', first_name='Demo2', last_name='User', street='9072 West Nichols Street', city='Carollton', state='GA', zip_code='30117', phone='7175501675'
+        )
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', first_name='Bobbie', last_name='Smith', street='77 Wrangler Drive', city='Lake Jackson', state='TX', zip_code='77566', phone='212-658-3916')
+        username='bobbie', email='bobbie@aa.io', password='password', first_name='Bobbie', last_name='Smith', street='77 Wrangler Drive', city='Lake Jackson', state='TX', zip_code='77566', phone='1111111111'
+        )
 
     db.session.add(demo)
     db.session.add(marnie)

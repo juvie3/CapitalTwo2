@@ -35,6 +35,17 @@ function LoginFormModal() {
     }
   };
 
+  const demo2SignIn = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo2@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    } else {
+      closeModal()
+      history.replace('/accounts')
+    }
+  };
+
   return (
     <div id="login-form-modal-entire">
       <h1>Log In</h1>
@@ -63,7 +74,8 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
-        <div id='demo-link' className="grow" onClick={demoSignIn}>Demo User</div>
+        <div id='demo-link' className="grow" onClick={demoSignIn}>Demo User 1</div>
+        <div id='demo-link' className="grow" onClick={demo2SignIn}>Demo User 2</div>
       </form>
     </div>
   );

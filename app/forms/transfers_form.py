@@ -6,3 +6,4 @@ class TransfersForm (FlaskForm):
       payee = StringField("Payee")
       amount = FloatField("Amount")
       date_paid = StringField("Date Paid")
+      phone = StringField("Phone")

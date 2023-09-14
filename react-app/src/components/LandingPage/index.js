@@ -43,6 +43,16 @@ export const LandingPage = () => {
     }
   };
 
+  const demo2SignIn = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo2@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    } else {
+      history.replace('/accounts')
+    }
+  };
+
   const goSignUp = () => {
     history.replace('/signup')
   }
@@ -84,8 +94,8 @@ export const LandingPage = () => {
                     required
                   />
                 </div>
-                <div className="lower-label-sign-in-landing-page">
-                  {/* Forgot password? */}
+                <div onClick={demoSignIn} className="lower-label-sign-in-landing-page">
+                  Sign in as a demo user 1
                 </div>
               </div>
               <div id="username-div-sign-in-landing-page">
@@ -95,8 +105,8 @@ export const LandingPage = () => {
                 <button type="submit" id="sign-in-butt-landing-page">
                   Sign In
                 </button>
-                <div onClick={demoSignIn} className="lower-label-sign-in-landing-page">
-                  Sign in as a demo user
+                <div onClick={demo2SignIn} className="lower-label-sign-in-landing-page">
+                  Sign in as a demo user 2
                 </div>
               </div>
             </div>

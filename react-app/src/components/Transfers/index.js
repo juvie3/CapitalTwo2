@@ -211,7 +211,7 @@ export const Transfers = () => {
 
                               :
                               pendingArr.map((transfer) => (
-                                    <div id='pending-transfer-body'>
+                                    <div id='pending-transfer-body' key={transfer.id}>
                                           <div>
                                           <div id='month-today-transfer-page'>
                                           {monthToday}
@@ -232,7 +232,7 @@ export const Transfers = () => {
                                                 // </div>
                                                 // :
 
-                                                <div id='send-butt-transfers-page' className="pointer grow">
+                                                <div id='send-butt-transfers-page' className="pointer">
 
                                                 <OpenModalButton
                                                 buttonText="Send Money"
@@ -258,7 +258,7 @@ export const Transfers = () => {
 
                                           }
 
-                                          <div id='delete-butt-transfers-page' className="pointer grow">
+                                          <div id='delete-butt-transfers-page' className="pointer">
                                                 <OpenModalButton
                                                 buttonText="Delete"
                                                 modalComponent={<TransferDelete transfer={transfer} />}

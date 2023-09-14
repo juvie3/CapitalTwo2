@@ -185,16 +185,34 @@
 }
 
 #send-butt-transfers-page > button:hover {
-      /* background-color: rgb(2,118,177); */
-      /* color: white; */
+      background-color: rgb(2,118,177);
+      color: white;
       cursor: pointer;
 }
 
+.grow-send {
+      transition: all 0.2s ease-in-out;
+}
+
+.grow-send:hover {
+      transform-origin: bottom;
+      transform: scale(1, 1.15);
+}
+
 #delete-butt-transfers-page > button:hover {
-      /* color: white; */
-      /* background-color: rgb(209,46,47); */
+      color: white;
+      background-color: rgb(209,46,47);
       cursor: pointer;
 
+}
+
+.grow-delete {
+      transition: all 0.2s ease-in-out;
+}
+
+.grow-delete:hover {
+      transform-origin: top;
+      transform: scale(1, 1.15);
 }
 
 #date-paid-transfers-page {

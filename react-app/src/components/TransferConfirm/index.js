@@ -14,19 +14,38 @@ export const TransferConfirm = ({ transfer }) => {
       const dispatch = useDispatch();
       const history = useHistory();
       const user = useSelector((state) => state.session.user)
-      const [funds, setFunds] = useState()
+      const [phone, setPhone] = useState()
+
       const { closeModal } = useModal();
 
       // console.log('',transfer);
 
-      const submitForm = () => {
+      const submitForm = async () => {
 
+            const newTransfer = {
+                  phone,
+                  id: transfer.id
+            }
+
+
+            await dispatch(fetchUpdateTransfer(newTransfer))
+            await dispatch(fetchAccounts())
+            history.replace(`/transfers/${transfer.accountId}`)
+            closeModal()
       }
 
       const no = async () => {
 
             closeModal()
 
+      }
+
+      const sendDemo1 = () => {
+            setPhone('demo@aa.io')
+      }
+
+      const sendDemo2 = () => {
+            setPhone('demo2@aa.io')
       }
 
       const send = async () => {
@@ -45,26 +64,35 @@ export const TransferConfirm = ({ transfer }) => {
 
 
 
-
+                        <form onSubmit={submitForm} >
                               <div className="funding-question-form">
                                     <div id='funding-page-question-text' className="funding-question-text">We just need {transfer.payee}'s phone number or email address:</div>
                                     <input id='add-fund-input' className="funding-question-input"
                                     type='text'
                                     placeholder='Enter it here'
-                                    value={funds}
-                                    onChange={(e) => setFunds(e.target.value)}
-                                    min='1'
-                                    max='50000'
-
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    maxLength='100'
+                                    required
                                     />
                               </div>
-                              <div className="delete-acct-butt-holder">
+                              <div id='for-demo-users'>For Demo Users:</div>
+                              {
+                                    user.id != 1 ?  <div className="grow pointer" id='send-demo-1' onClick={sendDemo1}> Send to Demo User 1</div> : null
+                              }
+                              {
+                                    user.id != 2 ?  <div className="grow pointer" id='send-demo-2' onClick={sendDemo2}> Send to Demo User 2</div> : null
+                              }
 
-                              <button id="send-butt-confirm-transfer" onClick={send} className="form-submit-butt-checking grow">Send</button>
+                              <div id='butt-holder-transfer-confirm' className="delete-acct-butt-holder">
+
+                              <button id="send-butt-confirm-transfer" type="submit" className="form-submit-butt-checking grow">Send</button>
 
                               <button id="close-butt-confirm-transfer" onClick={no} className="form-submit-butt-checking grow">Close</button>
 
                               </div>
+
+                        </form>
 
 
 

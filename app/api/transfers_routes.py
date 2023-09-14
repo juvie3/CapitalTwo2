@@ -3,6 +3,7 @@ from ..models import db
 from ..models.account import Account
 from ..models.transaction import Transaction
 from ..models.transfer import Transfer
+from ..models.user import User
 from ..forms.accounts_form import AccountsForm
 from ..forms.transfers_form import TransfersForm
 from flask_login import login_required, current_user #current_user.id
@@ -53,6 +54,33 @@ def create_transfer(accountId):
 def update_transfer(id):
 
       transfer = Transfer.query.get(id)
+
+      form = TransfersForm()
+      form["csrf_token"].data = request.cookies["csrf_token"]
+
+      phone_given = form.data["phone"]
+
+      user_getter_phone = User.query.filter_by(phone=phone_given).first()
+      user_getter_email = User.query.filter_by(email=phone_given).first()
+
+
+
+      if (user_getter_phone):
+            getter_acct = Account.query.filter_by(user_id=user_getter_phone.id).first()
+
+            newAmount = getter_acct.funds + transfer.amount
+
+            getter_acct.funds = newAmount
+            db.session.commit()
+
+      if (user_getter_email):
+            getter_acct = Account.query.filter_by(user_id=user_getter_email.id).first()
+
+            newAmount = getter_acct.funds + transfer.amount
+
+            getter_acct.funds = newAmount
+            db.session.commit()
+
 
       transfer.date_paid = datetime.now()
       db.session.commit()
