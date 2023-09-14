@@ -17,7 +17,7 @@
 }
 
 .form-title-1 {
-      font-size: 27px;
+      font-size: 25px;
       font-weight: 500;
       margin-bottom: 30px;
       padding: 20px 0;
@@ -30,7 +30,7 @@
 }
 
 .form-title-2 {
-      font-size: 20px;
+      font-size: 18px;
       padding: 0 25px;
       margin-bottom: 5px;
 }
@@ -39,6 +39,7 @@
       padding: 0 25px;
       margin-bottom: 40px;
       font-weight: 300;
+      font-size: 16px;
 }
 
 .outer-form-input {
@@ -103,7 +104,7 @@
       margin-bottom: 15px;
       /* width: 100%;
       height: 100%; */
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 900;
 }
 
@@ -114,10 +115,12 @@
 }
 
 .close-form {
-      font-size: 30px;
-      font-weight: 700;
+      font-size: 28px;
+      font-weight: 900;
       color: rgb(171, 171, 171);
       margin-bottom: 15px;
+      background-color: transparent;
+      border: none;
 }
 
 .close-form:hover {

@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom"
 import { fetchAccounts } from "../../store/accountsReducer"
 import { TransferConfirm } from "../TransferConfirm"
 import OpenModalButton from "../OpenModalButton";
+import { TransferDelete } from "../TransferDelete"
 
 
 export const Transfers = () => {
@@ -94,8 +95,12 @@ export const Transfers = () => {
       const account = acctArr.find((account) => account.id == accountId)
       const transferArr = transferArray.filter((transfer) => transfer.accountId == accountId)
 
-      const pendingArr = transferArr.filter((transfer) => !transfer.date_paid)
-      const sentArr = transferArr.filter((transfer) => transfer.date_paid)
+      const pendingArrTemp = transferArr.filter((transfer) => !transfer.date_paid)
+      const pendingArr = pendingArrTemp.sort((t1, t2) => (t1.id < t2.id) ? 1 : (t1.id > t2.id) ? -1 : 0 )
+
+      const sentArrTemp = transferArr.filter((transfer) => transfer.date_paid)
+      const sentArr = sentArrTemp.sort((t1, t2) => (Date.parse(t1.date_paid) < Date.parse(t2.date_paid)) ? 1 : (Date.parse(t1.date_paid) > Date.parse(t2.date_paid)) ? -1 : 0 )
+
 
       const goDetails = () => {
             history.replace(`/accounts/${account.id}`)
@@ -221,13 +226,13 @@ export const Transfers = () => {
                                           transfer.amount <= account.funds ?
 
 
-                                                transfer.date_paid ?
-                                                <div>
-                                                {`Sent on ${transfer.date_paid}`}
-                                                </div>
-                                                :
+                                                // transfer.date_paid ?
+                                                // <div>
+                                                // {`Sent on ${transfer.date_paid}`}
+                                                // </div>
+                                                // :
 
-                                                <div id='send-butt-transfers-page' className="pointer">
+                                                <div id='send-butt-transfers-page' className="pointer grow">
 
                                                 <OpenModalButton
                                                 buttonText="Send Money"
@@ -253,7 +258,13 @@ export const Transfers = () => {
 
                                           }
 
-                                          <div id='delete-butt-transfers-page' className="pointer" onClick={()=>deleteTransfer(transfer.id)} >Delete</div>
+                                          <div id='delete-butt-transfers-page' className="pointer grow">
+                                                <OpenModalButton
+                                                buttonText="Delete"
+                                                modalComponent={<TransferDelete transfer={transfer} />}
+                                                />
+
+                                          </div>
 
 
                                           </div>

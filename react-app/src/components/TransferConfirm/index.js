@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
-import { fetchCreateAccount, fetchUpdateAccount } from "../../store/accountsReducer";
+import { fetchAccounts, fetchCreateAccount, fetchUpdateAccount } from "../../store/accountsReducer";
 import { useModal } from "../../context/Modal";
 import '../AccountCheckingForm/styleAccountCheckingForm.css'
 import '../AccountFundUpdate/styleAccountFundUpdate.css'
@@ -17,26 +17,24 @@ export const TransferConfirm = ({ transfer }) => {
       const [funds, setFunds] = useState()
       const { closeModal } = useModal();
 
+      // console.log('',transfer);
+
       const submitForm = () => {
 
       }
 
       const no = async () => {
 
-
-
-
-            // await dispatch(fetchCreateTransfer(newTransfer))
             closeModal()
-            // history.replace(`/accounts/${account.id}`)
 
       }
 
-      const send = async (transfer) => {
-            console.log('here', transfer.id);
+      const send = async () => {
+            console.log('here', transfer);
             await dispatch(fetchUpdateTransfer(transfer.id))
+            await dispatch(fetchAccounts())
+            history.replace(`/transfers/${transfer.accountId}`)
             closeModal()
-
       }
 
       return (
@@ -46,7 +44,7 @@ export const TransferConfirm = ({ transfer }) => {
                   <div id='ready-to-send'>Ready to Send</div>
 
 
-            <form>
+
 
                               <div className="funding-question-form">
                                     <div id='funding-page-question-text' className="funding-question-text">We just need {transfer.payee}'s phone number or email address:</div>
@@ -67,7 +65,7 @@ export const TransferConfirm = ({ transfer }) => {
                               <button id="close-butt-confirm-transfer" onClick={no} className="form-submit-butt-checking grow">Close</button>
 
                               </div>
-                        </form>
+
 
 
 

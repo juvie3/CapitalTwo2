@@ -36,7 +36,7 @@ body {
   cursor: pointer;
 }
 
-.no:hover {
+.no {
   cursor: not-allowed;
 }
 

@@ -132,7 +132,7 @@ export const AccountSavingsForm = () => {
                               </div>
                               <div id='butt-div-form'>
                                     <button className="form-submit-butt-checking grow" type='submit'>Submit</button>
-                                    <div onClick={showSave} className="close-form grow">Close</div>
+                                    <button onClick={showSave} className="close-form grow">Close</button>
                                     </div>
 
                         </form>
