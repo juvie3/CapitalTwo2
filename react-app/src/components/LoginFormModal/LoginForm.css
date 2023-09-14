@@ -2,3 +2,41 @@
       position: relative;
       z-index: 5;
 }
+
+#whole-form-signin-modal {
+      border: 1px solid rgb(222, 222, 222);
+      /* padding: 10px 50px 30px 50px; */
+      padding: 20px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      border-radius: 5px;
+      margin-bottom: 20px;
+}
+
+#login-title {
+      /* margin-top: 0px; */
+      margin-bottom: -3px;
+}
+
+#login-butt-login-modal {
+      background-color: transparent;
+      border: 1px solid rgb(2,118,177);
+      color: rgb(2,118,177);
+      border-radius: 4px;
+      transition: all 0.2s ease-in-out;
+      font-size: 18px;
+      padding: 0 30px;
+}
+
+#login-butt-login-modal:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+}
+
+.demo-user-2-signin-modal {
+      margin-bottom: 5px;
+}

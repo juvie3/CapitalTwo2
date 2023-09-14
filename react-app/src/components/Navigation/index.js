@@ -39,6 +39,9 @@ function Navigation({ isLoaded }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
+
+      setShowMenu(false);
+
       if (!ulRef.current.contains(e.target)) {
         setShowMenu(false);
       }
@@ -88,15 +91,23 @@ function Navigation({ isLoaded }) {
             }
             <ul className={ulClassName} ref={ulRef}>
               {user ? (
-                <>
-                  <div>{user.username}</div>
-                  <div>{user.email}</div>
+                <div id='user-profile-nav-drop'>
+                  <div id='thank-you-drop-down'>
+                  <img id='logo-dropdown' src={logo} />
                   <div>
+                  Thanks for banking with us
+                  </div>
+                  </div>
+                  <div id='username-dropdown' className="profile-dropdown-list">{user.username}</div>
+                  <div className="profile-dropdown-list">{`📬 ${user.email}`}</div>
+                  <div className="profile-dropdown-list">{`☎️ (${user.phone.slice(0,3)}) ${user.phone.slice(3,6)}-${user.phone.slice(6,11)}`}</div>
+                  <div id='logout-dropdown-profile'>
                     <button onClick={handleLogout}>Log Out</button>
                   </div>
-                </>
+                </div>
               ) : (
-                <>
+                <div id='in-out-profile'>
+                  <div>Welcome to CapitalTwo</div>
                   <OpenModalButton
                     buttonText="Log In"
                     onItemClick={closeMenu}
@@ -108,7 +119,7 @@ function Navigation({ isLoaded }) {
                     onItemClick={closeMenu}
                     modalComponent={<SignupFormModal />}
                   />
-                </>
+                </div>
               )}
             </ul>
           </div>
