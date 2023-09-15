@@ -30,22 +30,37 @@
 
 #for-demo-users {
       text-align: center;
+      font-size: 15px;
 }
 
-#send-demo-1 {
+#demo-user-holder-confirm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+#send-demo1 {
       text-align: center;
       color: rgb(2,118,177);
       border: 1px solid rgb(2,118,177);
       border-radius: 4px;
-      margin: 5px 145px 0 145px;
+      /* margin: 5px 160px 0 160px;
+      padding: 0 2px 0 2px; */
+      font-size: 15px;
+      margin-top: 1px;
+      width: 145px;
 }
 
-#send-demo-2 {
+#send-demo2 {
       text-align: center;
       color: rgb(2,118,177);
       border: 1px solid rgb(2,118,177);
       border-radius: 4px;
-      margin: 5px 145px 0 145px;
+      /* margin: 5px 160px 0 160px;
+      padding: 0 2px 0 2px; */
+      font-size: 15px;
+      margin-top: 1px;
+      width: 145px;
 }
 
 #butt-holder-transfer-confirm {

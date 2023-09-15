@@ -66,7 +66,19 @@ export const TransferConfirm = ({ transfer }) => {
 
                         <form onSubmit={submitForm} >
                               <div className="funding-question-form">
-                                    <div id='funding-page-question-text' className="funding-question-text">We just need {transfer.payee}'s phone number or email address:</div>
+                                    {
+                                          transfer.payee.slice(-1) == 's' ?
+
+                                          <div id='funding-page-question-text' className="funding-question-text">We just need {transfer.payee}' phone number or email address:</div>
+
+                                          :
+
+                                          <div id='funding-page-question-text' className="funding-question-text">We just need {transfer.payee}'s phone number or email address:</div>
+
+                                    }
+
+
+
                                     <input id='add-fund-input' className="funding-question-input"
                                     type='text'
                                     placeholder='Enter it here'
@@ -77,12 +89,16 @@ export const TransferConfirm = ({ transfer }) => {
                                     />
                               </div>
                               <div id='for-demo-users'>For Demo Users:</div>
+                              <div id='demo-user-holder-confirm'>
+
                               {
-                                    user.id != 1 ?  <div className="grow pointer" id='send-demo-1' onClick={sendDemo1}> Send to Demo User 1</div> : null
+                                    user.id != 1 ?  <div className="grow pointer" id='send-demo1' onClick={sendDemo1}> Send to Demo User 1</div> : null
                               }
                               {
-                                    user.id != 2 ?  <div className="grow pointer" id='send-demo-2' onClick={sendDemo2}> Send to Demo User 2</div> : null
+                                    user.id != 2 ?  <div className="grow pointer" id='send-demo2' onClick={sendDemo2}> Send to Demo User 2</div> : null
                               }
+
+                              </div>
 
                               <div id='butt-holder-transfer-confirm' className="delete-acct-butt-holder">
 
