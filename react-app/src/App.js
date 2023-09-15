@@ -11,6 +11,7 @@ import { Accounts } from "./components/Accounts";
 import { AccountExistingNew } from "./components/AccountExistingNew";
 import { AccountDetails } from "./components/AccountDetails";
 import { Transfers } from "./components/Transfers";
+import { PageNotFound } from "./components/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,9 @@ function App() {
           </ProtectedRoute>
           <Route exact path="/" >
             <LandingPage />
+          </Route>
+          <Route path="*" >
+            <PageNotFound />
           </Route>
         </Switch>
       )}

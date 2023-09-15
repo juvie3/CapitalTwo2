@@ -12,6 +12,12 @@
   width: 100vw;
 }
 
+#errors-landing-page {
+  text-align: center;
+  color: rgb(209,46,47);
+  margin-bottom: -12px;
+}
+
 #inner-div-sign-in-div-landing-page {
   display: flex;
   flex-direction: row;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/session";
 
 import "./styleLandingPage.css";
@@ -13,6 +13,7 @@ import deal from "./capDealsImg.webp";
 import wellness from "./capWellnessImg.avif";
 import bullHorn from "./capBullHorn.png";
 import { useHistory } from "react-router-dom";
+import { Accounts } from "../Accounts";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ export const LandingPage = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const history = useHistory()
+
+  const user = useSelector((state) => state.session.user)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,72 +63,109 @@ export const LandingPage = () => {
   return (
     <div id="landing-entire-page">
       <div id="inner-div-landing-entire-page">
-        <div id="sign-in-div-landing-page">
-          <form onSubmit={handleSubmit}>
-            <div id="inner-div-sign-in-div-landing-page">
-              <div id="username-div-sign-in-landing-page">
-                <div className="label-sign-in-landing-page">Email</div>
-                <div className="box-input-sign-in-landing-page">
-                  <img
-                    className="icon-box-sign-in-landing-page"
-                    src={profile}
-                  />
-                  <input
-                    className="username-password-input-land-page"
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div onClick={goSignUp} className="lower-label-sign-in-landing-page">
-                  Sign up as a new user
-                </div>
+
+        {
+          !user ?
+
+              <div id="sign-in-div-landing-page">
+                <form onSubmit={handleSubmit}>
+                        <ul id='errors-landing-page'>
+                          { errors.length ?
+                            <div>Invalid Credentials</div> : null
+                            }
+                        </ul>
+                  <div id="inner-div-sign-in-div-landing-page">
+                    <div id="username-div-sign-in-landing-page">
+
+                      <div className="label-sign-in-landing-page">Email</div>
+                      <div className="box-input-sign-in-landing-page">
+                        <img
+                          className="icon-box-sign-in-landing-page"
+                          src={profile}
+                        />
+                        <input
+                          className="username-password-input-land-page"
+                          type="text"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div onClick={goSignUp} className="lower-label-sign-in-landing-page">
+                        Sign up as a new user
+                      </div>
+                    </div>
+                    <div id="username-div-sign-in-landing-page">
+                      <div className="label-sign-in-landing-page">Password</div>
+                      <div className="box-input-sign-in-landing-page">
+                        <img className="icon-box-sign-in-landing-page" src={lock} />
+                        <input
+                          className="username-password-input-land-page"
+                          type="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div onClick={demoSignIn} className="lower-label-sign-in-landing-page">
+                        Sign in as a demo user 1
+                      </div>
+                    </div>
+                    <div id="username-div-sign-in-landing-page">
+                      <div id="blank" className="label-sign-in-landing-page">
+                        blank
+                      </div>
+                      <button type="submit" id="sign-in-butt-landing-page">
+                        Sign In
+                      </button>
+                      <div onClick={demo2SignIn} className="lower-label-sign-in-landing-page">
+                        Sign in as a demo user 2
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
-              <div id="username-div-sign-in-landing-page">
-                <div className="label-sign-in-landing-page">Password</div>
-                <div className="box-input-sign-in-landing-page">
-                  <img className="icon-box-sign-in-landing-page" src={lock} />
-                  <input
-                    className="username-password-input-land-page"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
-                <div onClick={demoSignIn} className="lower-label-sign-in-landing-page">
-                  Sign in as a demo user 1
-                </div>
-              </div>
-              <div id="username-div-sign-in-landing-page">
-                <div id="blank" className="label-sign-in-landing-page">
-                  blank
-                </div>
-                <button type="submit" id="sign-in-butt-landing-page">
-                  Sign In
-                </button>
-                <div onClick={demo2SignIn} className="lower-label-sign-in-landing-page">
-                  Sign in as a demo user 2
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+
+          :
+
+            null
+
+        }
+
+
+
+
+
+
 
         <div id="first-image-div-landing-page">
           <img id="first-image-landing-page" src={firstImg} />
-          <div id="first-image-box-div-landing-page">
-            <div id="first-img-div-1-landing-page">
-              SEE IF YOU'RE PRE-APPROVED
-            </div>
-            <div id="first-img-div-2-landing-page">Find your match</div>
-            <div id="first-img-div-3-landing-page">
-              Check for pre-approved offers and choose the one that's best for
-              you.
-            </div>
-            {/* <div className="no" id="first-img-div-4-landing-page">Get started</div> */}
-          </div>
+
+          {
+            !user ?
+
+                <div id="first-image-box-div-landing-page">
+                  <div id="first-img-div-1-landing-page">
+                    SEE IF YOU'RE PRE-APPROVED
+                  </div>
+                  <div id="first-img-div-2-landing-page">Find your match</div>
+                  <div id="first-img-div-3-landing-page">
+                    Check for pre-approved offers and choose the one that's best for
+                    you.
+                  </div>
+                  {/* <div className="no" id="first-img-div-4-landing-page">Get started</div> */}
+                </div>
+
+            :
+
+              null
+
+          }
+
+
+
+
+
         </div>
 
         <div id="tab-flower-car-div-landing-page">
