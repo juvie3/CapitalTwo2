@@ -17,12 +17,18 @@ export const AccountExistingNew = () => {
       const { form, setForm, save, setSave } = useContext(FormsContext)
 
       const showForm = () => {
-            if (form === false) setForm(true)
+            if (form === false) {
+                  setSave(false)
+                  setForm(true)
+            }
             if (form === true ) setForm(false)
       }
 
       const showSave = () => {
-            if (save === false) setSave(true)
+            if (save === false) {
+                  setForm(false)
+                  setSave(true)
+            }
             if (save === true ) setSave(false)
       }
 
