@@ -108,7 +108,7 @@ export const LandingPage = () => {
                         />
                       </div>
                       <div onClick={demoSignIn} className="lower-label-sign-in-landing-page">
-                        Sign in as a demo user 1
+                        Sign in as Demo User 1
                       </div>
                     </div>
                     <div id="username-div-sign-in-landing-page">
@@ -119,7 +119,7 @@ export const LandingPage = () => {
                         Sign In
                       </button>
                       <div onClick={demo2SignIn} className="lower-label-sign-in-landing-page">
-                        Sign in as a demo user 2
+                        Sign in as Demo User 2
                       </div>
                     </div>
                   </div>

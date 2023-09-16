@@ -43,3 +43,7 @@ body {
 .test {
   border: 1px solid red;
 }
+
+.error-list {
+  color: rgb(209,46,47);
+}

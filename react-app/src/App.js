@@ -12,6 +12,7 @@ import { AccountExistingNew } from "./components/AccountExistingNew";
 import { AccountDetails } from "./components/AccountDetails";
 import { Transfers } from "./components/Transfers";
 import { PageNotFound } from "./components/PageNotFound";
+import { Footer } from "./components/footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

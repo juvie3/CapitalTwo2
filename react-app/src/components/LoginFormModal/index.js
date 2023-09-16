@@ -59,7 +59,7 @@ function LoginFormModal() {
       <form id='form-signup-page' className="demo-user-2-signin-modal" onSubmit={handleSubmit}>
             <ul>
               { errors.length ?
-                <li>Invalid Credentials</li> : null
+                <div className="error-list">Invalid Credentials</div> : null
                 }
             </ul>
       <div id='whole-form-signin-modal'>
