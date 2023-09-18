@@ -252,6 +252,12 @@
       margin: 30px 20px;
 }
 
+#temp-desc-for-no-funds {
+      color: rgb(117,117,117);
+      text-align: center;
+      padding-top: 10px;
+}
+
 @media (max-width: 1165px) {
       #main-transfer-form {
             display: flex;
