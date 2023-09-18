@@ -66,7 +66,7 @@ def update_transfer(id):
 
 
       if (user_getter_phone):
-            getter_acct = Account.query.filter_by(user_id=user_getter_phone.id).all()
+            getter_acct = Account.query.filter_by(user_id=user_getter_phone.id).order_by(Account.id).all()
 
             newAmount = getter_acct[0].funds + transfer.amount
 
@@ -74,7 +74,7 @@ def update_transfer(id):
             db.session.commit()
 
       if (user_getter_email):
-            getter_acct = Account.query.filter_by(user_id=user_getter_email.id).all()
+            getter_acct = Account.query.filter_by(user_id=user_getter_email.id).order_by(Account.id).all()
 
             newAmount = getter_acct[0].funds + transfer.amount
 
