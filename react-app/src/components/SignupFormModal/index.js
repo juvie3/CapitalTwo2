@@ -126,7 +126,6 @@ function SignupFormModal() {
               Street
               <input id='street-input-signup-page'
                 type="text"
-                placeholder="US address only"
                 value={street}
                 onChange={(e) => setStreet(e.target.value)}
                 required
