@@ -140,6 +140,12 @@ export const Transfers = () => {
                   </div>
             </div>
 
+
+
+
+
+
+
             <div id='inner-transfers-entire-page-2'>
                   <div id='outer-div-white-upper-boxshadow-transfers-page'>
                         <div id='white-upper-boxshadow-transfers-page'>
@@ -189,6 +195,8 @@ export const Transfers = () => {
 
 
                   </div>
+
+
 
                         <div id="transfer-div-transfer-page">
 
@@ -341,7 +349,7 @@ export const Transfers = () => {
 
 
 
-{/*
+            {/*
                   {
                         transferArr.length ?
                         transferArr.map((transfer) => (
