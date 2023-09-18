@@ -278,7 +278,7 @@ export const Transfers = () => {
 
 
 
-                        <div id='pending-text-transfers-page'>Past Transfers</div>
+                        <div id='pending-text-transfers-page'>Transfers Sent</div>
 
                         <div id='pending-transfer-category-bar'>
                               <div id='date-transfers-page'>DATE</div>
