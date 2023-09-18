@@ -45,6 +45,7 @@
 
 #state-input-signup-page {
       margin-left: 108px;
+      width: 146px;
 }
 
 #city-input-signup-page {
@@ -65,10 +66,12 @@
 
 #zip-input-signup-page {
       margin-left: 82px;
+      width: 139px;
 }
 
 #phone-input-signup-page {
       margin-left: 39px;
+      width: 139px;
 }
 
 #password-input-signup-page {
