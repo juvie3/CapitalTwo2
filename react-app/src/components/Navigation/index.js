@@ -81,9 +81,9 @@ function Navigation({ isLoaded }) {
         </div>
 
         <div id="right-panel-inner-div-nav">
-          {/* <img src={search} className="nav-icon grow-big" /> */}
-          {/* <img src={question} className="nav-icon grow-big" /> */}
-          {/* <img src={map} className="nav-icon grow-big" /> */}
+          <img src={search} className="nav-icon grow-big" />
+          <img src={question} className="nav-icon grow-big" />
+          <img src={map} className="nav-icon grow-big" />
           <div id="sign-in-div-nav" onClick={openMenu}>
             <img src={profile} className="nav-icon grow-big pointer" />
             {

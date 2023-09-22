@@ -4,6 +4,8 @@
       flex-direction: column;
       align-items: center;
       overflow: hidden;
+      min-height: 70vh;
+      background-color: rgb(244,241,243);
 }
 
 #inner-acct-details-entire-page-1 {
@@ -63,6 +65,7 @@
 #inner-acct-details-entire-page-2 {
       background-color: rgb(244,241,243);
       width: 100vw;
+      height: auto;
       display: flex;
       flex-direction: column;
       align-items: center;

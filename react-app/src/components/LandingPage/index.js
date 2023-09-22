@@ -153,7 +153,7 @@ export const LandingPage = () => {
                     Check for pre-approved offers and choose the one that's best for
                     you.
                   </div>
-                  {/* <div className="no" id="first-img-div-4-landing-page">Get started</div> */}
+                  <div className="no" id="first-img-div-4-landing-page">Get started</div>
                 </div>
 
             :
@@ -177,7 +177,7 @@ export const LandingPage = () => {
               your credit score.
             </div>
             <div className="text-3-tab-flower-car">
-              {/* See if I'm Pre-Approved › */}
+              See if I'm Pre-Approved ›
             </div>
           </div>
           <div className="tab-flower-car-div">
@@ -188,7 +188,7 @@ export const LandingPage = () => {
               America.
             </div>
             <div className="text-3-tab-flower-car">
-              {/* Compare accounts › */}
+              Compare accounts ›
               </div>
           </div>
           <div className="tab-flower-car-div">
@@ -199,7 +199,7 @@ export const LandingPage = () => {
               dealer.
             </div>
             <div className="text-3-tab-flower-car">
-              {/* Check out Auto Navigator › */}
+              Check out Auto Navigator ›
             </div>
           </div>
         </div>
@@ -209,7 +209,7 @@ export const LandingPage = () => {
           <div id="help-text-2-landing-page">
             We'll offer ideas to help you meet your goal.
           </div>
-          {/* <div className="no" id="help-text-3-landing-page">See suggestions</div> */}
+          <div className="no" id="help-text-3-landing-page">See suggestions</div>
         </div>
 
         <div id="shoppers-deals-div-landing-page">
@@ -223,7 +223,7 @@ export const LandingPage = () => {
               Capital One Shopping is a free tool that instantly searches for
               savings and applies them to your cart.
             </div>
-            {/* <div id="text-4-right-deal-div">Add Capital One Shopping ›</div> */}
+            <div id="text-4-right-deal-div">Add Capital One Shopping ›</div>
           </div>
         </div>
 
@@ -235,7 +235,7 @@ export const LandingPage = () => {
               Get help building your credit score and financial future with our
               free app.
             </div>
-            {/* <div id="text-4-right-deal-div">Get started ›</div> */}
+            <div id="text-4-right-deal-div">Get started ›</div>
           </div>
           <img id="deal-image-landing-page" src={wellness} />
         </div>
