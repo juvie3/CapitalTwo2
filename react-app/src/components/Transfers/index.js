@@ -188,6 +188,7 @@ export const Transfers = () => {
 
 
                               </div>
+                              <div id='temp-desc-for-no-funds'>(You can only send up to your available balance - please add more funds to send more)</div>
 
 
                         </div>
@@ -285,7 +286,7 @@ export const Transfers = () => {
 
 
 
-                        <div id='pending-text-transfers-page'>Past Transfers</div>
+                        <div id='pending-text-transfers-page'>Transfers Sent</div>
 
                         <div id='pending-transfer-category-bar'>
                               <div id='date-transfers-page'>DATE</div>

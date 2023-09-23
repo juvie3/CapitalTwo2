@@ -49,7 +49,7 @@ function LoginFormModal() {
   };
 
   return (
-    <div className="signup-modal-entire" id='signup-entire-page'>
+    <div className="signup-modal-entire" id='signin-modal-entire-page'>
       <div id='inner-signup-page'>
 
       <h1 id='login-title'>Log In</h1>

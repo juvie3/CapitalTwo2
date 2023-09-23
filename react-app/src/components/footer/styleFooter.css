@@ -4,6 +4,7 @@
       background: linear-gradient(rgb(0,61,91), rgb(82,82,82));
       /* background: linear-gradient(rgb(4, 118, 177), rgb(82,82,82)); */
       overflow: hidden;
+
 }
 
 #linked-in-git-holder {
@@ -13,6 +14,9 @@
       justify-content: flex-start;
       gap: 1rem;
       margin-top: 30px;
+      /* position: absolute;
+      bottom: 0;
+      width: 100%; */
 }
 
 .linkedin-logo {

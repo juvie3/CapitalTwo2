@@ -138,7 +138,6 @@ function SignupFormPage() {
               Street
               <input id='street-input-signup-page'
                 type="text"
-                placeholder="US address only"
                 value={street}
                 onChange={(e) => setStreet(e.target.value)}
                 required
@@ -236,11 +235,13 @@ function SignupFormPage() {
             Zip Code
             <input id='zip-input-signup-page'
               type="text"
+              placeholder="5 digits"
               value={zip_code}
               onChange={(e) => setZipCode(e.target.value)}
               required
+              pattern="\d{5}"
               minLength="5"
-              maxLength="10"
+              maxLength="5"
             />
           </label>
 
@@ -256,7 +257,7 @@ function SignupFormPage() {
               placeholder="10 digits, no dashes"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              pattern="^\S+-\S+\-\S+$"
+              pattern="\d{10}"
               required
               minLength="10"
               maxLength="10"

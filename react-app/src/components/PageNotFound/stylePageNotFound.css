@@ -1,6 +1,9 @@
-/* body {
-	background: #8acdeb;
-} */
+
+#page-not-found-entire {
+  min-height: 70vh;
+}
+
+
 #container {
 	position: absolute;
 	top: 50%;
