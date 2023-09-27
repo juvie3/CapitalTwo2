@@ -47,11 +47,11 @@ export const AccountDetails = () => {
       });
 
       const backToAccts = () => {
-            history.replace('/accounts')
+            history.push('/accounts')
       }
 
       const goTransfer = () => {
-            history.replace(`/transfers/${accountId}`)
+            history.push(`/transfers/${accountId}`)
       }
 
       useEffect(() => {

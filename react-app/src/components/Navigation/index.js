@@ -31,8 +31,8 @@ function Navigation({ isLoaded }) {
   };
 
   const logoLink = () => {
-    if (user) history.replace('/accounts')
-    else history.replace('/')
+    if (user) history.push('/accounts')
+    else history.push('/')
   }
 
   useEffect(() => {
@@ -55,8 +55,8 @@ function Navigation({ isLoaded }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    history.replace('/')
     closeModal()
+    history.push('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");

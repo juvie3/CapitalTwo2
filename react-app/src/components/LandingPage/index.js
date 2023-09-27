@@ -32,7 +32,7 @@ export const LandingPage = () => {
       setErrors(data);
       console.log(errors);
     } else {
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
@@ -42,7 +42,7 @@ export const LandingPage = () => {
     if (data) {
       setErrors(data);
     } else {
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
@@ -52,12 +52,12 @@ export const LandingPage = () => {
     if (data) {
       setErrors(data);
     } else {
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
   const goSignUp = () => {
-    history.replace('/signup')
+    history.push('/signup')
   }
 
   return (

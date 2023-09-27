@@ -26,7 +26,7 @@ export const AccountDelete = ({ account }) => {
 
             await dispatch(fetchDeleteAccount(account.id))
             closeModal()
-            history.replace('/accounts')
+            history.push('/accounts')
 
       }
 

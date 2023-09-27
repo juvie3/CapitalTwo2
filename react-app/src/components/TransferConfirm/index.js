@@ -29,8 +29,8 @@ export const TransferConfirm = ({ transfer }) => {
 
             await dispatch(fetchUpdateTransfer(newTransfer))
             await dispatch(fetchAccounts())
-            history.replace(`/transfers/${transfer.accountId}`)
             closeModal()
+            history.push(`/transfers/${transfer.accountId}`)
       }
 
       const no = async () => {
@@ -51,8 +51,8 @@ export const TransferConfirm = ({ transfer }) => {
 
             await dispatch(fetchUpdateTransfer(transfer.id))
             await dispatch(fetchAccounts())
-            history.replace(`/transfers/${transfer.accountId}`)
             closeModal()
+            history.push(`/transfers/${transfer.accountId}`)
       }
 
       return (

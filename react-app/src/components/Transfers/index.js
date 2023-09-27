@@ -22,7 +22,7 @@ export const Transfers = () => {
       const transfers = useSelector((state) => state.transfers ? state.transfers : {})
 
       const backToAccts = () => {
-            history.replace('/accounts')
+            history.push('/accounts')
       }
 
       let dollar = new Intl.NumberFormat("en-US", {
@@ -103,7 +103,7 @@ export const Transfers = () => {
 
 
       const goDetails = () => {
-            history.replace(`/accounts/${account.id}`)
+            history.push(`/accounts/${account.id}`)
       }
 
       if (account?.accountType == "checking") account.accountType = "Checking";

@@ -11,7 +11,7 @@ export const AccountTiles = ({ account }) => {
   });
 
   const handleNewAcct = () => {
-      history.replace(`/accounts/${account.id}`)
+      history.push(`/accounts/${account.id}`)
   };
 
   if (account.accountType == "checking") account.accountType = "Checking";

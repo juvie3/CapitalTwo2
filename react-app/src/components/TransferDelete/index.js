@@ -18,8 +18,8 @@ export const TransferDelete = ({ transfer }) => {
       const answerYes = async () => {
 
             await dispatch(fetchDeleteTransfer(transfer.id))
-            history.replace(`/transfers/${transfer.accountId}`)
             closeModal()
+            history.push(`/transfers/${transfer.accountId}`)
 
       }
 

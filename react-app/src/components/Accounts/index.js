@@ -23,7 +23,7 @@ export const Accounts = () => {
       }, [dispatch])
 
       const handleNewAcct = () => {
-            history.replace('/accounts/existingnew')
+            history.push('/accounts/existingnew')
       }
 
 

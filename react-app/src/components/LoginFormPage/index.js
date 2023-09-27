@@ -24,7 +24,7 @@ function LoginFormPage() {
     if (data) {
       setErrors(data);
     } else {
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
@@ -34,7 +34,7 @@ function LoginFormPage() {
     if (data) {
       setErrors(data);
     } else {
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
@@ -44,7 +44,7 @@ function LoginFormPage() {
     if (data) {
       setErrors(data);
     } else {
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 

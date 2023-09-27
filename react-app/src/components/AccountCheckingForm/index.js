@@ -31,7 +31,7 @@ export const AccountCheckingForm = () => {
             if (form === true ) setForm(false)
 
             await dispatch(fetchCreateAccount(newAccount))
-            history.replace('/accounts')
+            history.push('/accounts')
 
       }
 

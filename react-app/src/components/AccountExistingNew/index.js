@@ -37,7 +37,7 @@ export const AccountExistingNew = () => {
       }
 
       const backToAccts = () => {
-            history.replace('/accounts')
+            history.push('/accounts')
       }
 
       return (

@@ -22,7 +22,7 @@ function LoginFormModal() {
       setErrors(data);
     } else {
         closeModal()
-        history.replace('/accounts')
+        history.push('/accounts')
     }
   };
 
@@ -33,7 +33,7 @@ function LoginFormModal() {
       setErrors(data);
     } else {
       closeModal()
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
@@ -44,7 +44,7 @@ function LoginFormModal() {
       setErrors(data);
     } else {
       closeModal()
-      history.replace('/accounts')
+      history.push('/accounts')
     }
   };
 
