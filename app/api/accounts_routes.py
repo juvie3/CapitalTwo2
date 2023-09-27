@@ -3,6 +3,7 @@ from ..models import db
 from ..models.account import Account
 from ..models.transaction import Transaction
 from ..forms.accounts_form import AccountsForm
+from ..forms.transaction_form import TransactionForm
 from flask_login import login_required, current_user #current_user.id
 from datetime import datetime
 
@@ -20,7 +21,7 @@ def get_accounts():
 
       response = [acct.to_dict() for acct in res]
 
-      print(response)
+      # print(response)
       return response
 
 
@@ -35,7 +36,7 @@ def get_transactions():
 
       response = [transaction.to_dict() for transaction in res]
 
-      print(response)
+      # print(response)
       return response
 
 
@@ -64,7 +65,7 @@ def create_account():
 
             response = [acct.to_dict() for acct in res]
 
-            print(response)
+            # print(response)
             return response
 
       else:
@@ -108,7 +109,67 @@ def update_account(id):
 
             response = [acct.to_dict() for acct in res]
 
-            print(response)
+            # print(response)
+            return response
+
+      else:
+            print(form.errors)
+            return {"errors": form.errors}
+
+
+@accounts.route("/move/<int:id>", methods=["POST"])
+@login_required
+def move_account_funds(id):
+
+      form = TransactionForm()
+
+      form["csrf_token"].data = request.cookies["csrf_token"]
+
+      if form.validate_on_submit():
+            from_account = Account.query.get(id)
+            to_account = Account.query.get(form.data['id'])
+
+
+            newFundAmtFromAcct = from_account.funds - form.data["amount"]
+            newFundAmtToAcct = to_account.funds + form.data["amount"]
+
+            from_account.funds = newFundAmtFromAcct
+            db.session.commit()
+
+            to_account.funds = newFundAmtToAcct
+            db.session.commit()
+
+
+            new_transaction_from_acct = Transaction (
+                  user_id = current_user.id,
+                  account_id = from_account.id,
+                  payee = f"Funds To Acct #{to_account.id}",
+                  amount = form.data["amount"],
+                  product = "Sent",
+                  date_paid = datetime.now(),
+            )
+
+            db.session.add(new_transaction_from_acct)
+            db.session.commit()
+
+            new_transaction_to_acct = Transaction (
+                  user_id = current_user.id,
+                  account_id = to_account.id,
+                  payee = f"Funds From Acct #{from_account.id}",
+                  amount = form.data["amount"],
+                  product = "Received",
+                  date_paid = datetime.now(),
+            )
+
+            db.session.add(new_transaction_to_acct)
+            db.session.commit()
+
+
+            res = Account.query.filter(Account.user_id == current_user.id)
+
+            response = [acct.to_dict() for acct in res]
+
+            # print(response)
             return response
 
       else:
@@ -131,7 +192,7 @@ def delete_account(id):
 
                   response = [acct.to_dict() for acct in res]
 
-                  print(response)
+                  # print(response)
                   return response
 
 

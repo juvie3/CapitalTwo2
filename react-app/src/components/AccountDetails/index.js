@@ -10,6 +10,7 @@ import '../Transfers/styleTransfers.css'
 import OpenModalButton from "../OpenModalButton";
 import { AccountCheckingForm } from "../AccountCheckingForm";
 import { AccountFundUpdate } from "../AccountFundUpdate";
+import { AccountFundMove } from "../AccountFundMove";
 import { AccountDelete } from "../AccountDelete";
 
 
@@ -90,7 +91,7 @@ export const AccountDetails = () => {
                               <div id='funds-acct-details'>{dollar.format(account.funds)}</div>
                         </div>
                         <div>
-                        <div onClick={goTransfer} id='transfer-butt-acct-details' className="grow pointer">Transfer Money</div>
+                        <div onClick={goTransfer} id='transfer-butt-acct-details' className="grow pointer">Money Transfers</div>
 
                         </div>
 
@@ -107,7 +108,7 @@ export const AccountDetails = () => {
 
                   <div id='white-upper-boxshadow-transfers-page'>
                   <div id='acct-number-transfers'>{`${account.accountType} Account #${account.id}`}</div>
-                              <div id='transfer-text-transfers-page'>Account Transactions</div>
+                              <div id='transfer-text-transfers-page'>Account Details</div>
 
                         <div id='transaction-link-bar-acct-details'>
                               <div id='add-funds-butt-acct-details' className="grow pointer">
@@ -115,6 +116,13 @@ export const AccountDetails = () => {
                                     <OpenModalButton
                                     buttonText="Add Funds"
                                     modalComponent={<AccountFundUpdate account={account} />}
+                                    />
+                                    </div>
+                              <div id='add-funds-butt-acct-details' className="grow pointer">
+                              <i class="fa-solid fa-circle-dot"></i>
+                                    <OpenModalButton
+                                    buttonText="Move Funds"
+                                    modalComponent={<AccountFundMove account={account} />}
                                     />
                                     </div>
                               <div id='delete-butt-acct-details' className="grow pointer">
@@ -171,15 +179,45 @@ export const AccountDetails = () => {
                               {trans.datePaid.slice(5,7)}
                               </div>
                               </div>
-                              <div id='payee-transfers-page'>{trans.payee}: {trans.product}</div>
+
+                              {
+                                    trans.product === "Transfer To" ?
+                                          <div id='payee-transfers-page'>Money {trans.product} {trans.payee}</div>
+                                    :
+
+                                          trans.product === "Transfer From" ?
+                                                <div id='payee-transfers-page'>Money {trans.product} {trans.payee}</div>
+                                          :
+
+                                                <div id='payee-transfers-page'>{trans.payee}: {trans.product}</div>
+                              }
+
+
+
+
+
+
+
+
                               <div>
 
 
                               {
                                     trans.product === "Transfer From" || trans.product === "Received" ?
 
+
+
                                     <div id='date-paid-transfers-page'>
                                     {`Recvd ${trans.datePaid.slice(0,16)}`}
+                                    </div>
+
+                                    :
+
+
+                                    trans.product === "Sent" || trans.product === "Transfer To" ?
+
+                                    <div id='date-paid-transfers-page'>
+                                    {`Sent ${trans.datePaid.slice(0,16)}`}
                                     </div>
 
                                     :

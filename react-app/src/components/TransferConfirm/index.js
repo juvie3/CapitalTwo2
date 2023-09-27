@@ -18,7 +18,6 @@ export const TransferConfirm = ({ transfer }) => {
 
       const { closeModal } = useModal();
 
-      // console.log('',transfer);
 
       const submitForm = async () => {
 
@@ -49,7 +48,7 @@ export const TransferConfirm = ({ transfer }) => {
       }
 
       const send = async () => {
-            console.log('here', transfer);
+
             await dispatch(fetchUpdateTransfer(transfer.id))
             await dispatch(fetchAccounts())
             history.replace(`/transfers/${transfer.accountId}`)

@@ -1,0 +1,10 @@
+.amount-move {
+      margin-top: 10px;
+}
+
+#acct-move {
+      font-size: 20px;
+      border: none;
+      outline: none;
+      /* margin-top: 10px; */
+}

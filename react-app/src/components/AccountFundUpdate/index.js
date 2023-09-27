@@ -44,11 +44,11 @@ export const AccountFundUpdate = ({ account }) => {
             <form onSubmit={submitForm}>
 
                               <div className="funding-question-form">
-                                    <div id='funding-page-question-text' className="funding-question-text">How much would you like to add to your account?</div>
+                                    <div id='funding-page-question-text' className="funding-question-text">How much would you like to deposit?</div>
                                     <input id='add-fund-input' className="funding-question-input"
                                     type='number'
                                     step='0.01'
-                                    placeholder='Enter Amount (max: $50,000)'
+                                    placeholder='Enter Amount'
                                     value={funds}
                                     onChange={(e) => setFunds(e.target.value)}
                                     min='1'

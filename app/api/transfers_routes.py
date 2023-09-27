@@ -76,7 +76,7 @@ def update_transfer(id):
             new_transaction = Transaction (
                   user_id = getter_acct[0].user.id,
                   account_id = getter_acct[0].id,
-                  payee = user_getter_phone.username,
+                  payee = current_user.username,
                   amount = transfer.amount,
                   product = "Transfer From",
                   date_paid = datetime.now(),
@@ -99,7 +99,7 @@ def update_transfer(id):
             new_transaction = Transaction (
                   user_id = user_getter_email.id,
                   account_id = getter_acct[0].id,
-                  payee = user_getter_email.username,
+                  payee = current_user.username,
                   amount = transfer.amount,
                   product = "Transfer From",
                   date_paid = datetime.now(),

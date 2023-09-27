@@ -243,7 +243,7 @@ export const LandingPage = () => {
         {/* <div id='more-text-landing-page' >WE'RE MORE THAN JUST A BANK</div>
 
                         <div id='temp-footer'></div> */}
-        {/* <img id="bullHorn-landing-page" src={bullHorn} /> */}
+        <img id="bullHorn-landing-page" src={bullHorn} />
       </div>
     </div>
   );

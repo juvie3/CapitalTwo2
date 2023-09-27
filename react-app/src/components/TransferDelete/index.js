@@ -14,7 +14,6 @@ export const TransferDelete = ({ transfer }) => {
       const [funds, setFunds] = useState()
       const { closeModal } = useModal();
 
-      console.log("tohoeu", transfer);
 
       const answerYes = async () => {
 

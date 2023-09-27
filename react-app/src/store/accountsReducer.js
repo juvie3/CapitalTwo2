@@ -14,7 +14,6 @@ export const deleteAccount = (accounts) => ({
 
 export const fetchAccounts = () => async (dispatch) => {
 
-      // console.log('hello from thunk');
 
       const res = await fetch('/api/accounts/')
 
@@ -56,6 +55,30 @@ export const fetchUpdateAccount = (account) => async (dispatch) => {
       const accountUpdated = { account_type, funds }
 
       const res = await fetch(`/api/accounts/update/${account.id}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(accountUpdated)
+      })
+
+      if (res.ok) {
+            const allAccounts = await res.json()
+
+            const acctObj = {}
+            allAccounts.forEach(acct => acctObj[acct.id] = acct)
+            dispatch(loadAccounts(acctObj))
+      } else {
+            const errors = await res.json()
+            return errors
+      }
+}
+
+export const fetchMoveAccountFunds = (account) => async (dispatch) => {
+
+      const { idFrom, idTo, funds } = account
+      const accountUpdated = { id: idTo , amount: funds }
+
+      console.log("hello there", accountUpdated);
+      const res = await fetch(`/api/accounts/move/${idFrom}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(accountUpdated)

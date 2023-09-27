@@ -23,7 +23,6 @@ export const AccountDelete = ({ account }) => {
 
             // if (accountUpdated.account_type == "Checking") accountUpdated.account_type = "checking"
             // if (accountUpdated.account_type == "Savings") accountUpdated.account_type = "savings"
-            // console.log('comp id', account.id);
 
             await dispatch(fetchDeleteAccount(account.id))
             closeModal()
@@ -47,7 +46,7 @@ export const AccountDelete = ({ account }) => {
 
                               <div className="funding-question-form">
                                     <div id='delete-account-page-question-text' className="funding-question-text">Are you sure you want to delete this account?</div>
-                                    <div id='forfeit'>Note: you will forfeit all funds!</div>
+                                    <div id='forfeit'>Note: You Will Forfeit All Funds!</div>
                               </div>
 
                               <div className="delete-acct-butt-holder">
