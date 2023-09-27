@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { fetchCreateAccount, fetchUpdateAccount } from "../../store/accountsReducer";
 import { useModal } from "../../context/Modal";
+import { fetchTransactions } from "../../store/transactionsReducer";
 import '../AccountCheckingForm/styleAccountCheckingForm.css'
 import './styleAccountFundUpdate.css'
 
@@ -27,8 +28,9 @@ export const AccountFundUpdate = ({ account }) => {
             if (accountUpdated.account_type == "Savings") accountUpdated.account_type = "savings"
 
             await dispatch(fetchUpdateAccount(accountUpdated))
+            await dispatch(fetchTransactions())
             closeModal()
-            history.replace(`/accounts/${account.id}`)
+            history.push(`/accounts/${account.id}`)
 
       }
 

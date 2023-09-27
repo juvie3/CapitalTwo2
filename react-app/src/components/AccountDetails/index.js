@@ -176,7 +176,7 @@ export const AccountDetails = () => {
 
 
                               {
-                                    trans.product === "Transfer From" ?
+                                    trans.product === "Transfer From" || trans.product === "Received" ?
 
                                     <div id='date-paid-transfers-page'>
                                     {`Recvd ${trans.datePaid.slice(0,16)}`}
@@ -197,7 +197,7 @@ export const AccountDetails = () => {
                               </div>
 
                               {
-                                    trans.product === "Transfer From" ?
+                                    trans.product === "Transfer From" || trans.product === "Received" ?
 
                                     <div id='amount-transfers-page'>{dollar.format(trans.amount)}</div>
 

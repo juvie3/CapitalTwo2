@@ -47,6 +47,7 @@ export const AccountDelete = ({ account }) => {
 
                               <div className="funding-question-form">
                                     <div id='delete-account-page-question-text' className="funding-question-text">Are you sure you want to delete this account?</div>
+                                    <div id='forfeit'>Note: you will forfeit all funds!</div>
                               </div>
 
                               <div className="delete-acct-butt-holder">

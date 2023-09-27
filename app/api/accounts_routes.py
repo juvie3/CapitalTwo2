@@ -4,6 +4,7 @@ from ..models.account import Account
 from ..models.transaction import Transaction
 from ..forms.accounts_form import AccountsForm
 from flask_login import login_required, current_user #current_user.id
+from datetime import datetime
 
 accounts = Blueprint('accounts', __name__)
 
@@ -88,6 +89,20 @@ def update_account(id):
 
             account.funds = newFundAmt
             db.session.commit()
+
+
+            new_transaction = Transaction (
+                  user_id = current_user.id,
+                  account_id = account.id,
+                  payee = "Deposit",
+                  amount = form.data["funds"],
+                  product = "Received",
+                  date_paid = datetime.now(),
+            )
+
+            db.session.add(new_transaction)
+            db.session.commit()
+
 
             res = Account.query.filter(Account.user_id == current_user.id)
 
