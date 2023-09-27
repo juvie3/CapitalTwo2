@@ -3,9 +3,11 @@ from ..models import db
 from ..models.account import Account
 from ..models.transaction import Transaction
 from ..models.transfer import Transfer
+from ..models.transaction import Transaction
 from ..models.user import User
 from ..forms.accounts_form import AccountsForm
 from ..forms.transfers_form import TransfersForm
+from ..forms.transaction_form import TransactionForm
 from flask_login import login_required, current_user #current_user.id
 from datetime import datetime
 
@@ -63,8 +65,6 @@ def update_transfer(id):
       user_getter_phone = User.query.filter_by(phone=phone_given).first()
       user_getter_email = User.query.filter_by(email=phone_given).first()
 
-
-
       if (user_getter_phone):
             getter_acct = Account.query.filter_by(user_id=user_getter_phone.id).order_by(Account.id).all()
 
@@ -73,12 +73,40 @@ def update_transfer(id):
             getter_acct[0].funds = newAmount
             db.session.commit()
 
+            new_transaction = Transaction (
+                  user_id = getter_acct[0].user.id,
+                  account_id = getter_acct[0].id,
+                  payee = user_getter_phone.username,
+                  amount = transfer.amount,
+                  product = "Transfer From",
+                  date_paid = datetime.now(),
+            )
+
+            db.session.add(new_transaction)
+            db.session.commit()
+
       if (user_getter_email):
+
             getter_acct = Account.query.filter_by(user_id=user_getter_email.id).order_by(Account.id).all()
 
             newAmount = getter_acct[0].funds + transfer.amount
 
             getter_acct[0].funds = newAmount
+            db.session.commit()
+
+
+
+            new_transaction = Transaction (
+                  user_id = user_getter_email.id,
+                  account_id = getter_acct[0].id,
+                  payee = user_getter_email.username,
+                  amount = transfer.amount,
+                  product = "Transfer From",
+                  date_paid = datetime.now(),
+            )
+
+
+            db.session.add(new_transaction)
             db.session.commit()
 
 
@@ -90,6 +118,21 @@ def update_transfer(id):
       newAmount = account.funds - transfer.amount
 
       account.funds = newAmount
+      db.session.commit()
+
+      # form = TransactionForm()
+      # form["csrf_token"].data = request.cookies["csrf_token"]
+
+      new_transaction = Transaction (
+            user_id = current_user.id,
+            account_id = account.id,
+            payee = transfer.payee,
+            amount = transfer.amount,
+            product = "Transfer To",
+            date_paid = datetime.now(),
+      )
+
+      db.session.add(new_transaction)
       db.session.commit()
 
       res = Transfer.query.filter(Transfer.user_id == current_user.id)

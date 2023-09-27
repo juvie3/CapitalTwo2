@@ -144,57 +144,81 @@ export const AccountDetails = () => {
 
 
 
-<div id='pending-text-transfers-page'>Transactions</div>
+            <div id='pending-text-transfers-page'>Transactions</div>
 
-<div id='pending-transfer-category-bar'>
-      <div id='date-transfers-page'>DATE</div>
-      <div>DESCRIPTION</div>
-      <div>STATUS</div>
-      <div>AMOUNT</div>
-</div>
-
-{
-      !acctTransactionsArr.length ?
-      <div id='pending-transfer-body-empty'>
-            <h3>No Past Transactions</h3>
-
-      </div>
-
-      :
-      acctTransactionsArr.map((trans) => (
-            <div id='pending-transfer-body'>
-                  <div>
-                  <div id='month-today-transfer-page'>
-                  {monthToday}
-                  </div>
-                  <div id='date-today-transfers-page'>
-                  {trans.datePaid.slice(5,7)}
-                  </div>
-                  </div>
-                  <div id='payee-transfers-page'>{trans.payee}</div>
-                  <div>
-                  <div id='date-paid-transfers-page'>
-                        {`Paid ${trans.datePaid.slice(0,16)}`}
-                  </div>
-
-
-                  </div>
-
-
-
-
-
-                  <div id='amount-transfers-page'>{dollar.format(trans.amount)}</div>
+            <div id='pending-transfer-category-bar'>
+                  <div id='date-transfers-page'>DATE</div>
+                  <div>DESCRIPTION</div>
+                  <div>STATUS</div>
+                  <div>AMOUNT</div>
             </div>
 
+            {
+                  !acctTransactionsArr.length ?
+                  <div id='pending-transfer-body-empty'>
+                        <h3>No Past Transactions</h3>
 
-      ))
-}
+                  </div>
+
+                  :
+                  acctTransactionsArr.map((trans) => (
+                        <div id='pending-transfer-body'>
+                              <div>
+                              <div id='month-today-transfer-page'>
+                              {trans.datePaid.slice(8,11)}
+                              </div>
+                              <div id='date-today-transfers-page'>
+                              {trans.datePaid.slice(5,7)}
+                              </div>
+                              </div>
+                              <div id='payee-transfers-page'>{trans.payee}: {trans.product}</div>
+                              <div>
+
+
+                              {
+                                    trans.product === "Transfer From" ?
+
+                                    <div id='date-paid-transfers-page'>
+                                    {`Recvd ${trans.datePaid.slice(0,16)}`}
+                                    </div>
+
+                                    :
+
+                                    <div id='date-paid-transfers-page'>
+                                    {`Paid ${trans.datePaid.slice(0,16)}`}
+                                    </div>
+
+                              }
 
 
 
 
-</div>
+
+                              </div>
+
+                              {
+                                    trans.product === "Transfer From" ?
+
+                                    <div id='amount-transfers-page'>{dollar.format(trans.amount)}</div>
+
+                                    :
+
+                                    <div id='amount-transfers-page'>-{dollar.format(trans.amount)}</div>
+
+                              }
+
+
+
+                        </div>
+
+
+                  ))
+            }
+
+
+
+
+            </div>
 
 
 

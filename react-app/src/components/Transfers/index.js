@@ -188,7 +188,7 @@ export const Transfers = () => {
 
 
                               </div>
-                              <div id='temp-desc-for-no-funds'>(You can only send up to your available balance - please add more funds to send more)</div>
+                              {/* <div id='temp-desc-for-no-funds'>(You can only send up to your available balance - please add more funds to send more)</div> */}
 
 
                         </div>
