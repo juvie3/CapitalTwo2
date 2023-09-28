@@ -325,3 +325,11 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
   cursor: pointer;
 }
+
+#feedback-outer-div {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+}

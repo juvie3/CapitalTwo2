@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/session";
 
@@ -14,6 +14,11 @@ import wellness from "./capWellnessImg.avif";
 import bullHorn from "./capBullHorn.png";
 import { useHistory } from "react-router-dom";
 import { Accounts } from "../Accounts";
+import OpenModalButton from "../OpenModalButton";
+import { FormsContext } from '../../context/forms'
+import { Feedback } from "../Feedback";
+
+
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
@@ -21,8 +26,17 @@ export const LandingPage = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const history = useHistory()
+  const { feedback, setFeedback } = useContext(FormsContext)
 
   const user = useSelector((state) => state.session.user)
+
+  const showFeedback = () => {
+    if (feedback === false) {
+      setFeedback(true)
+    } else {
+      setFeedback(false)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -243,7 +257,28 @@ export const LandingPage = () => {
         {/* <div id='more-text-landing-page' >WE'RE MORE THAN JUST A BANK</div>
 
                         <div id='temp-footer'></div> */}
-        <img id="bullHorn-landing-page" src={bullHorn} />
+        <img onClick={showFeedback} id="bullHorn-landing-page" src={bullHorn} />
+
+        {
+          feedback === true ?
+
+            <div id='feedback-outer-div'>
+              <Feedback />
+
+
+
+
+
+
+
+            </div>
+
+          :
+
+          null
+
+        }
+
       </div>
     </div>
   );

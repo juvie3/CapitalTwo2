@@ -129,7 +129,7 @@
 }
 
 .nav-item:hover {
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 #right-panel-inner-div-nav {
@@ -145,8 +145,7 @@
 }
 
 .nav-icon:hover {
-  /* cursor: pointer; */
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 #sign-in-div-nav {

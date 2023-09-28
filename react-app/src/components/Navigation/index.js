@@ -31,8 +31,17 @@ function Navigation({ isLoaded }) {
   };
 
   const logoLink = () => {
-    if (user) history.push('/accounts')
-    else history.push('/')
+    history.push('/')
+    // if (user) history.push('/accounts')
+    // else history.push('/')
+  }
+
+  const accounts = () => {
+    history.push('/accounts')
+  }
+
+  const newAccounts = () => {
+    history.push('/accounts/existingnew')
   }
 
   useEffect(() => {
@@ -59,6 +68,10 @@ function Navigation({ isLoaded }) {
     history.push('/')
   };
 
+  const location = () => {
+    history.push('/locations')
+  }
+
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
@@ -71,10 +84,10 @@ function Navigation({ isLoaded }) {
           <img onClick={logoLink} className='pointer' id="logo-nav" src={logo} />
 
           <div id="nav-bar">
+            <div onClick={accounts} className="nav-item">Accounts</div>
+            <div onClick={newAccounts} className="nav-item">Checking & Savings</div>
             <div className="nav-item">Credit Cards</div>
-            <div className="nav-item">Checking & Savings</div>
             <div className="nav-item">Auto</div>
-            <div className="nav-item">Business</div>
             <div className="nav-item">Commercial</div>
             <div className="nav-item">Learn & Grow</div>
           </div>
@@ -83,7 +96,7 @@ function Navigation({ isLoaded }) {
         <div id="right-panel-inner-div-nav">
           <img src={search} className="nav-icon grow-big" />
           <img src={question} className="nav-icon grow-big" />
-          <img src={map} className="nav-icon grow-big" />
+          <img onClick={location} src={map} className="nav-icon grow-big" />
           <div id="sign-in-div-nav" onClick={openMenu}>
             <img src={profile} className="nav-icon grow-big pointer" />
             {

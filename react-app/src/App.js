@@ -13,6 +13,7 @@ import { AccountDetails } from "./components/AccountDetails";
 import { Transfers } from "./components/Transfers";
 import { PageNotFound } from "./components/PageNotFound";
 import { Footer } from "./components/footer";
+import { Locations } from "./components/Locations";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/locations">
+            <Locations />
           </Route>
           <ProtectedRoute exact path="/accounts/existingnew">
             <AccountExistingNew />
