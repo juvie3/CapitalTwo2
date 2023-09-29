@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
@@ -14,6 +14,9 @@ import map from "./map.png";
 import profile from "./profile.png";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+// import history.push from "../chat/chat";
+import { ChatBoxContext } from "../../context/ChatBox";
+import Chat from "../chat/chat";
 
 function Navigation({ isLoaded }) {
   const user = useSelector((state) => state.session.user);
@@ -21,9 +24,16 @@ function Navigation({ isLoaded }) {
   const { closeModal } = useModal();
 
 
+  const { chat, setChat } = useContext(ChatBoxContext)
+
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+
+  const turnOnChat = () => {
+    if (chat === false) setChat(true)
+    if (chat === true ) setChat(false)
+  }
 
   const openMenu = () => {
     if (showMenu) return;
@@ -95,7 +105,7 @@ function Navigation({ isLoaded }) {
 
         <div id="right-panel-inner-div-nav">
           <img src={search} className="nav-icon grow-big" />
-          <img src={question} className="nav-icon grow-big" />
+          <img onClick={turnOnChat} src={question} className="nav-icon grow-big" />
           <img onClick={location} src={map} className="nav-icon grow-big" />
           <div id="sign-in-div-nav" onClick={openMenu}>
             <img src={profile} className="nav-icon grow-big pointer" />
@@ -136,6 +146,17 @@ function Navigation({ isLoaded }) {
               )}
             </ul>
           </div>
+          {
+                chat ?
+                  (<div id='chat-div'>
+                  <Chat />
+                  </div> )
+                  :
+                  (<div id='chat-div-close'>
+                  <Chat />
+                  </div> )
+
+              }
         </div>
       </div>
 
