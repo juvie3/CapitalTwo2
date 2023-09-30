@@ -9,8 +9,6 @@ import * as sessionActions from "./store/session";
 import App from "./App";
 import { FormsProvider } from "./context/forms";
 
-import { ChatBoxProvider } from "./context/ChatBox";
-
 import "./index.css";
 
 const store = configureStore();
@@ -25,18 +23,16 @@ if (process.env.NODE_ENV !== "production") {
 // HTML elements on top of the all the other HTML elements:
 function Root() {
 	return (
-		<ChatBoxProvider>
-			<ModalProvider>
-				<FormsProvider>
-					<Provider store={store}>
-						<BrowserRouter>
-							<App />
-							<Modal />
-						</BrowserRouter>
-					</Provider>
-				</FormsProvider>
-			</ModalProvider>
-		</ChatBoxProvider>
+		<ModalProvider>
+			<FormsProvider>
+				<Provider store={store}>
+					<BrowserRouter>
+						<App />
+						<Modal />
+					</BrowserRouter>
+				</Provider>
+			</FormsProvider>
+		</ModalProvider>
 	);
 }
 
