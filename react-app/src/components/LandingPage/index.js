@@ -74,6 +74,18 @@ export const LandingPage = () => {
     history.push('/signup')
   }
 
+  const goNewAcct = () => {
+    history.push('/accounts/existingnew')
+  }
+
+  const messageCredit = () => {
+    alert("Credit Application Coming Soon")
+  }
+
+  const messageAuto = () => {
+    alert("Auto Loans Coming Soon")
+  }
+
   return (
     <div id="landing-entire-page">
       <div id="inner-div-landing-entire-page">
@@ -167,7 +179,7 @@ export const LandingPage = () => {
                     Check for pre-approved offers and choose the one that's best for
                     you.
                   </div>
-                  <div className="no" id="first-img-div-4-landing-page">Get started</div>
+                  <div onClick={messageCredit} className="pointer" id="first-img-div-4-landing-page">Get started</div>
                 </div>
 
             :
@@ -190,7 +202,7 @@ export const LandingPage = () => {
               Check if you're pre-approved for card offers with no impact to
               your credit score.
             </div>
-            <div className="text-3-tab-flower-car">
+            <div onClick={messageCredit} className="text-3-tab-flower-car pointer">
               See if I'm Pre-Approved ›
             </div>
           </div>
@@ -201,7 +213,7 @@ export const LandingPage = () => {
               Keep your money growing with one of the best savings rates in
               America.
             </div>
-            <div className="text-3-tab-flower-car">
+            <div onClick={goNewAcct} className="text-3-tab-flower-car pointer">
               Compare accounts ›
               </div>
           </div>
@@ -212,7 +224,7 @@ export const LandingPage = () => {
               Pre-qualify to see your real rate and payment before visiting the
               dealer.
             </div>
-            <div className="text-3-tab-flower-car">
+            <div onClick={messageAuto} className="text-3-tab-flower-car pointer">
               Check out Auto Navigator ›
             </div>
           </div>
@@ -223,7 +235,7 @@ export const LandingPage = () => {
           <div id="help-text-2-landing-page">
             We'll offer ideas to help you meet your goal.
           </div>
-          <div className="no" id="help-text-3-landing-page">See suggestions</div>
+          {/* <div className="no" id="help-text-3-landing-page">See suggestions</div> */}
         </div>
 
         <div id="shoppers-deals-div-landing-page">
@@ -237,7 +249,7 @@ export const LandingPage = () => {
               Capital One Shopping is a free tool that instantly searches for
               savings and applies them to your cart.
             </div>
-            <div id="text-4-right-deal-div">Add Capital One Shopping ›</div>
+            {/* <div id="text-4-right-deal-div">Add Capital One Shopping ›</div> */}
           </div>
         </div>
 
@@ -249,7 +261,7 @@ export const LandingPage = () => {
               Get help building your credit score and financial future with our
               free app.
             </div>
-            <div id="text-4-right-deal-div">Get started ›</div>
+            {/* <div id="text-4-right-deal-div">Get started ›</div> */}
           </div>
           <img id="deal-image-landing-page" src={wellness} />
         </div>

@@ -72,6 +72,14 @@ function Navigation({ isLoaded }) {
     history.push('/locations')
   }
 
+  const messageCredit = () => {
+    alert("Credit Application Coming Soon")
+  }
+
+  const messageAuto = () => {
+    alert("Auto Loans Coming Soon")
+  }
+
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
@@ -86,16 +94,16 @@ function Navigation({ isLoaded }) {
           <div id="nav-bar">
             <div onClick={accounts} className="nav-item">Accounts</div>
             <div onClick={newAccounts} className="nav-item">Checking & Savings</div>
-            <div className="nav-item">Credit Cards</div>
-            <div className="nav-item">Auto</div>
-            <div className="nav-item">Commercial</div>
-            <div className="nav-item">Learn & Grow</div>
+            <div onClick={messageCredit} className="nav-item pointer">Credit Cards</div>
+            <div onClick={messageAuto} className="nav-item pointer">Auto</div>
+            {/* <div className="nav-item">Commercial</div> */}
+            {/* <div className="nav-item">Learn & Grow</div> */}
           </div>
         </div>
 
         <div id="right-panel-inner-div-nav">
-          <img src={search} className="nav-icon grow-big" />
-          <img src={question} className="nav-icon grow-big" />
+          {/* <img src={search} className="nav-icon grow-big no" /> */}
+          <img src={question} className="nav-icon grow-big no" />
           <img onClick={location} src={map} className="nav-icon grow-big" />
           <div id="sign-in-div-nav" onClick={openMenu}>
             <img src={profile} className="nav-icon grow-big pointer" />
