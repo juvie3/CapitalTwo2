@@ -42,3 +42,9 @@ Allow a few minutes for the server to start up. Again, thank you so very much...
 
 ## Transfering money to other users:
 ![captwo-gif4](images/captransfers.gif)
+##
+
+# Future Goals
+- Credit Card Accounts
+- Auto Loans
+- AI powered help chat
