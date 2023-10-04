@@ -1,3 +1,7 @@
+import { deleteAccount, loadAccounts } from "./accountsReducer";
+import { deleteTransaction, loadTransactions } from "./transactionsReducer";
+import { deleteTransfer, loadTransfers } from "./transfersReducer";
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -64,6 +68,9 @@ export const logout = () => async (dispatch) => {
 
 	if (response.ok) {
 		dispatch(removeUser());
+		dispatch(deleteAccount({}));
+		dispatch(deleteTransaction({}));
+		dispatch(deleteTransfer({}));
 	}
 };
 

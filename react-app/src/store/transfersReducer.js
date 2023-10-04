@@ -106,7 +106,7 @@ const initialState = {}
 export const transfersReducer = (state = initialState, action) => {
       switch (action.type) {
             case LOAD_TRANSFERS:
-                  return { ...action.transfers }
+                  return { ...state, ...action.transfers }
             case DELETE_TRANSFER:
                   return { ...action.transfers }
             default:
