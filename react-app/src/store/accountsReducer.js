@@ -77,7 +77,6 @@ export const fetchMoveAccountFunds = (account) => async (dispatch) => {
       const { idFrom, idTo, funds } = account
       const accountUpdated = { id: idTo , amount: funds }
 
-      console.log("hello there", accountUpdated);
       const res = await fetch(`/api/accounts/move/${idFrom}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },

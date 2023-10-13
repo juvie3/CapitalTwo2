@@ -103,12 +103,12 @@ function Navigation({ isLoaded }) {
 
         <div id="right-panel-inner-div-nav">
           {/* <img src={search} className="nav-icon grow-big no" /> */}
-          <img src={question} className="nav-icon grow-big no" />
-          <img onClick={location} src={map} className="nav-icon grow-big" />
+          {/* <img src={question} className="nav-icon grow-big no" /> */}
+          {/* <img onClick={location} src={map} className="nav-icon grow-big" /> */}
           <div id="sign-in-div-nav" onClick={openMenu}>
             <img src={profile} className="nav-icon grow-big pointer" />
             {
-              user ? <div className="hidden">Sign In</div> : <div id="sign-in-nav">Sign In</div>
+              user ? <div id="sign-in-nav">Profile</div> : <div id="sign-in-nav">Sign In</div>
             }
             <ul className={ulClassName} ref={ulRef}>
               {user ? (
