@@ -54,7 +54,7 @@ Allow a few minutes for the server to start up. Again, thank you so very much...
 
 # How To Install This Web Application Locally
 
-Just follow the steps below to clone this repo locally.
+Just follow the steps below to run this app on your computer.
 
 ## Getting started
 1. Clone this repository to your local computer
