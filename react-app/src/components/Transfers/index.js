@@ -8,6 +8,7 @@ import { fetchAccounts } from "../../store/accountsReducer"
 import { TransferConfirm } from "../TransferConfirm"
 import OpenModalButton from "../OpenModalButton";
 import { TransferDelete } from "../TransferDelete"
+import question from './question.png'
 
 
 export const Transfers = () => {
@@ -17,12 +18,21 @@ export const Transfers = () => {
       const [payee, setPayee] = useState("")
       const [amount, setAmount] = useState()
       const [flagReload, setFlagReload] =useState(false)
+      const user = useSelector((state) => state.session.user)
 
       const accounts = useSelector((state) => state.accounts ? state.accounts : {})
       const transfers = useSelector((state) => state.transfers ? state.transfers : {})
 
       const backToAccts = () => {
             history.push('/accounts')
+      }
+
+      const sendDemo1 = () => {
+            setPayee('Demo User 1')
+      }
+
+      const sendDemo2 = () => {
+            setPayee('Demo User 2')
       }
 
       let dollar = new Intl.NumberFormat("en-US", {
@@ -150,7 +160,26 @@ export const Transfers = () => {
                   <div id='outer-div-white-upper-boxshadow-transfers-page'>
                         <div id='white-upper-boxshadow-transfers-page'>
                               <div id='acct-number-transfers'>{`${account.accountType} Account #${account.id}`}</div>
+
+                              <div id='transf-title-with-question'>
+
                               <div id='transfer-text-transfers-page'>Money Transfers</div>
+
+                              <div id='tooltip-div-f'>
+
+                              <img src={question} className="nav-icon grow-big transf-question" />
+                              <span id="tooltipText-transf">To start a money transfer, choose a user and the amount you want to send - then click on "Pend Transfer"</span>
+
+
+                              </div>
+
+
+                              </div>
+
+
+
+
+
 
                               <div id="main-transfer-bar">
 
@@ -190,6 +219,22 @@ export const Transfers = () => {
                               </div>
                               {/* <div id='temp-desc-for-no-funds'>(You can only send up to your available balance - please add more funds to send more)</div> */}
 
+                              <div id="demo-holder-transfer-start">
+
+                              <div id='for-demo-users'>For Demo Users:</div>
+                              <div id='demo-user-holder-confirm'>
+
+                              {
+                                    user.id != 1 ?  <div className="grow pointer" id='send-demo1' onClick={sendDemo1}> Send to Demo User 1</div> : null
+                              }
+                              {
+                                    user.id != 2 ?  <div className="grow pointer" id='send-demo2' onClick={sendDemo2}> Send to Demo User 2</div> : null
+                              }
+
+                              </div>
+
+                              </div>
+
 
                         </div>
 
@@ -202,12 +247,49 @@ export const Transfers = () => {
                         <div id="transfer-div-transfer-page">
 
 
+                        <div id='transf-title-with-question'>
+
                         <div id='pending-text-transfers-page'>Pending Transfers</div>
+
+                              <div id='tooltip-div-p'>
+
+                              <img src={question} className="nav-icon grow-big transf-question" />
+                              <span id="tooltipText-transf">Now you can choose to send the money or cancel it - a confirmation window will open to confirm your choice</span>
+
+
+                              </div>
+
+
+                              </div>
+
+
 
                         <div id='pending-transfer-category-bar'>
                               <div id='date-transfers-page'>DATE</div>
-                              <div>MONEY RECEIVER</div>
-                              <div>STATUS</div>
+                              <div>MONEY RECIPIENT</div>
+
+
+                              <div id='transf-title-with-question'>
+
+                              <div>ACTION NEEDED</div>
+
+
+                                    <div id='tooltip-div-s'>
+
+                                    <img src={question} className="nav-icon grow-big transS-question" />
+                                    <span id="tooltipText-transS">If you see "Not Enough Funds" - you can add more by going back to "Account Details" above</span>
+
+
+                                    </div>
+
+
+                                    </div>
+
+
+
+
+
+
                               <div>AMOUNT</div>
                         </div>
 
@@ -269,7 +351,7 @@ export const Transfers = () => {
 
                                           <div id='delete-butt-transfers-page' className="pointer">
                                                 <OpenModalButton
-                                                buttonText="Delete"
+                                                buttonText="Cancel"
                                                 modalComponent={<TransferDelete transfer={transfer} />}
                                                 />
 
@@ -284,13 +366,26 @@ export const Transfers = () => {
                               ))
                         }
 
+                        <div id='transf-title-with-question'>
+
+                        <div id='pending-text-transfers-page'>Completed Transfers</div>
+
+                              <div id='tooltip-div-p'>
+
+                              <img src={question} className="nav-icon grow-big transf-question" />
+                              <span id="tooltipText-transf">Once a money transfer is sent - you can log into the other user's account to verify the transaction</span>
 
 
-                        <div id='pending-text-transfers-page'>Transfers Sent</div>
+                              </div>
+
+
+                              </div>
+
+
 
                         <div id='pending-transfer-category-bar'>
                               <div id='date-transfers-page'>DATE</div>
-                              <div>MONEY RECEIVER</div>
+                              <div>MONEY RECIPIENT</div>
                               <div>STATUS</div>
                               <div>AMOUNT</div>
                         </div>
@@ -307,7 +402,7 @@ export const Transfers = () => {
                                     <div id='pending-transfer-body'>
                                           <div>
                                           <div id='month-today-transfer-page'>
-                                          {monthToday}
+                                          {transfer.date_paid.slice(8,11)}
                                           </div>
                                           <div id='date-today-transfers-page'>
                                           {transfer.date_paid.slice(5,7)}

@@ -637,8 +637,8 @@ export const Footer = () => {
             </div>
             <div id="contact-me-div">
             <div id="contact-me-text" >Contact me:</div>
-            <a className="contact-me-class" href="https://www.linkedin.com/in/juvenal-burguillos-b550041ba/" target="_blank"> LinkedIn </a>
-            <a className="contact-me-class" href="https://github.com/juvie3" target="_blank">GitHub</a>
+            <a className="contact-me-class grow" href="https://www.linkedin.com/in/juvenal-burguillos-b550041ba/" target="_blank"> LinkedIn </a>
+            <a className="contact-me-class grow" href="https://github.com/juvie3" target="_blank">GitHub</a>
 
 
 

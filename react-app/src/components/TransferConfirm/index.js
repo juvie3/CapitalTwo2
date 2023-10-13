@@ -18,6 +18,8 @@ export const TransferConfirm = ({ transfer }) => {
 
       const { closeModal } = useModal();
 
+      console.log(transfer, 'hello');
+
 
       const submitForm = async () => {
 
@@ -91,10 +93,10 @@ export const TransferConfirm = ({ transfer }) => {
                               <div id='demo-user-holder-confirm'>
 
                               {
-                                    user.id != 1 ?  <div className="grow pointer" id='send-demo1' onClick={sendDemo1}> Send to Demo User 1</div> : null
+                                    user.id != 1 && transfer.payee != "Demo User 2" ?  <div className="grow pointer" id='send-demo1' onClick={sendDemo1}> Send to Demo User 1</div> : null
                               }
                               {
-                                    user.id != 2 ?  <div className="grow pointer" id='send-demo2' onClick={sendDemo2}> Send to Demo User 2</div> : null
+                                    user.id != 2 && transfer.payee != "Demo User 1" ?  <div className="grow pointer" id='send-demo2' onClick={sendDemo2}> Send to Demo User 2</div> : null
                               }
 
                               </div>

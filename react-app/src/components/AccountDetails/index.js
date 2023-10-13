@@ -12,6 +12,7 @@ import { AccountCheckingForm } from "../AccountCheckingForm";
 import { AccountFundUpdate } from "../AccountFundUpdate";
 import { AccountFundMove } from "../AccountFundMove";
 import { AccountDelete } from "../AccountDelete";
+import question from './question.png';
 
 
 export const AccountDetails = () => {
@@ -150,9 +151,19 @@ export const AccountDetails = () => {
 
 
 
-
+            <div id='transaction-title-with-question'>
 
             <div id='pending-text-transfers-page'>Transactions</div>
+
+            <div id='tooltip-div'>
+
+            <img src={question} className="nav-icon grow-big trans-question" />
+            <span id="tooltipText-trans">Transactions will appear below after funds are added, funds are moved, or funds are transferred to other users</span>
+
+            </div>
+
+            </div>
+
 
             <div id='pending-transfer-category-bar'>
                   <div id='date-transfers-page'>DATE</div>

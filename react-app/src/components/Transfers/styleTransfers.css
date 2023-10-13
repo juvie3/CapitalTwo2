@@ -122,6 +122,16 @@
       font-size: 18px;
 }
 
+#demo-holder-transfer-start {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: -20px;
+      gap: 1rem;
+}
+
 #transfer-div-transfer-page {
       width: 70vw;
 }
@@ -256,6 +266,79 @@
       color: rgb(117,117,117);
       text-align: center;
       padding-top: 10px;
+}
+
+#transf-title-with-question {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+}
+
+.transf-question {
+      margin-top: 8px;
+      margin-left: 5px;
+}
+
+.transS-question {
+      margin-top: -1px;
+      margin-left: 5px;
+}
+
+#tooltip-div-f {
+      position: relative;
+}
+
+#tooltip-div-s {
+      position: relative;
+}
+
+#tooltip-div-p {
+      position: relative;
+      margin-top: 70px;
+}
+
+#tooltipText-transf {
+      position: absolute;
+      white-space: nowrap;
+      background-color: rgb(117,117,117);
+      color: white;
+      margin-left: 10px;
+      padding: 2px 5px;
+      border-radius: 5px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+}
+
+#tooltipText-transS {
+      position: absolute;
+      white-space: nowrap;
+      background-color: rgb(117,117,117);
+      color: white;
+      margin-top: -35px;
+      margin-left: -300px;
+      padding: 2px 5px;
+      border-radius: 5px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      font-size: 15px;
+      font-weight: 400;
+}
+
+#tooltip-div-f:hover #tooltipText-transf {
+      visibility: visible;
+      opacity: 1;
+}
+
+#tooltip-div-p:hover #tooltipText-transf {
+      visibility: visible;
+      opacity: 1;
+}
+
+#tooltip-div-s:hover #tooltipText-transS {
+      visibility: visible;
+      opacity: 1;
 }
 
 @media (max-width: 1165px) {
