@@ -5,6 +5,7 @@
 body {
   font-family: "Roboto";
   margin: 0;
+  background-color: rgb(244,241,243);
 }
 
 .grow {
@@ -46,4 +47,10 @@ body {
 
 .error-list {
   color: rgb(209,46,47);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

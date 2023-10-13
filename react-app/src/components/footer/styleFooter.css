@@ -1,5 +1,6 @@
 
 #footer-entire-page {
+      margin-top: auto;
       /* background-color: rgb(82,82,82); */
       background: linear-gradient(rgb(0,61,91), rgb(82,82,82));
       /* background: linear-gradient(rgb(4, 118, 177), rgb(82,82,82)); */

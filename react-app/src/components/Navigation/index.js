@@ -92,7 +92,7 @@ function Navigation({ isLoaded }) {
           <img onClick={logoLink} className='pointer' id="logo-nav" src={logo} />
 
           <div id="nav-bar">
-            <div onClick={accounts} className="nav-item">Accounts</div>
+            <div onClick={accounts} className="nav-item">My Accounts</div>
             <div onClick={newAccounts} className="nav-item">Checking & Savings</div>
             <div onClick={messageCredit} className="nav-item pointer">Credit Cards</div>
             <div onClick={messageAuto} className="nav-item pointer">Auto</div>

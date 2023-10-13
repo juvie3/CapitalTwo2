@@ -221,11 +221,13 @@
 
 #can-we-help-div-landing-page {
   text-align: center;
-  margin: 60px;
+  padding: 60px;
+
   color: rgb(4, 118, 177);
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(255, 255, 255);
 }
 
 #help-text-1-landing-page {
