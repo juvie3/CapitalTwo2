@@ -94,8 +94,8 @@ function Navigation({ isLoaded }) {
           <div id="nav-bar">
             <div onClick={accounts} className="nav-item">My Accounts</div>
             <div onClick={newAccounts} className="nav-item">Checking & Savings</div>
-            <div onClick={messageCredit} className="nav-item pointer">Credit Cards</div>
-            <div onClick={messageAuto} className="nav-item pointer">Auto</div>
+            {/* <div onClick={messageCredit} className="nav-item pointer">Credit Cards</div> */}
+            {/* <div onClick={messageAuto} className="nav-item pointer">Auto</div> */}
             {/* <div className="nav-item">Commercial</div> */}
             {/* <div className="nav-item">Learn & Grow</div> */}
           </div>
