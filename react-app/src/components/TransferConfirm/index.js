@@ -18,9 +18,6 @@ export const TransferConfirm = ({ transfer }) => {
 
       const { closeModal } = useModal();
 
-      console.log(transfer, 'hello');
-
-
       const submitForm = async () => {
 
             const newTransfer = {

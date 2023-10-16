@@ -11,6 +11,12 @@ export const Footer = () => {
             {/* <div id="upper-div-footer"></div> */}
       <div id="inner-footer-entire-page">
 
+      <div id="contact-me-div">
+            {/* <div id="contact-me-text" >Contact me:</div> */}
+            <a className="contact-me-class grow" href="https://www.linkedin.com/in/juvenal-burguillos-b550041ba/" target="_blank"> LinkedIn </a>
+            <a className="contact-me-class grow" href="https://github.com/juvie3" target="_blank">GitHub</a>
+            </div>
+
       <div id='linked-in-git-holder'>
       <a href="https://www.linkedin.com/in/juvenal-burguillos-b550041ba/" target="_blank" rel="noopener noreferrer">
                                 <img className='linkedin-logo' src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/linkedin-icon-18-256.png" alt="linkedin"/>
@@ -635,16 +641,8 @@ export const Footer = () => {
                 </i>
 
             </div>
-            <div id="contact-me-div">
-            <div id="contact-me-text" >Contact me:</div>
-            <a className="contact-me-class grow" href="https://www.linkedin.com/in/juvenal-burguillos-b550041ba/" target="_blank"> LinkedIn </a>
-            <a className="contact-me-class grow" href="https://github.com/juvie3" target="_blank">GitHub</a>
-
-
-
-
-            </div>
       </div>
+
 
 
       </div>
