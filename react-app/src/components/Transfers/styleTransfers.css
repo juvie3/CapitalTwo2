@@ -299,7 +299,6 @@
 
 #tooltipText-transf {
       position: absolute;
-      white-space: nowrap;
       background-color: rgb(117,117,117);
       color: white;
       margin-left: 10px;
@@ -308,6 +307,10 @@
       visibility: hidden;
       opacity: 0;
       transition: opacity 0.5s ease;
+      width: 300px;
+      height: auto;
+      overflow: visible;
+      overflow-wrap: normal;
 }
 
 #tooltipText-transS {

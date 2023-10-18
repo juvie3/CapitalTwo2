@@ -168,7 +168,7 @@ export const Transfers = () => {
                               <div id='tooltip-div-f'>
 
                               <img src={question} className="nav-icon grow-big transf-question" />
-                              <span id="tooltipText-transf">To start a money transfer, choose a user and the amount you want to send - then click on "Pend Transfer"</span>
+                              <span id="tooltipText-transf">To start a money transfer, type in who is receiving the money and the amount you want to send - then click on "Pend Transfer." If the recipient has a CapitalTwo Bank account, the money with transfer to their primary account; if they do not have an account with us, it will be sent to their corresponding bank. Please do not forget to confirm the transfer below, under "Pending Transfer" </span>
 
 
                               </div>
