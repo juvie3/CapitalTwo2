@@ -27,6 +27,7 @@ export const LandingPage = () => {
   const [errors, setErrors] = useState([]);
   const history = useHistory()
   const { feedback, setFeedback } = useContext(FormsContext)
+  const { loading, setLoading } = useState(false)
 
   const user = useSelector((state) => state.session.user)
 
@@ -40,32 +41,38 @@ export const LandingPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const data = await dispatch(login(email, password));
 
     if (data) {
       setErrors(data);
       console.log(errors);
     } else {
+      setLoading(false)
       history.push('/accounts')
     }
   };
 
   const demoSignIn = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const data = await dispatch(login('demo@aa.io', 'password'));
     if (data) {
       setErrors(data);
     } else {
+      setLoading(false)
       history.push('/accounts')
     }
   };
 
   const demo2SignIn = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const data = await dispatch(login('demo2@aa.io', 'password'));
     if (data) {
       setErrors(data);
     } else {
+      setLoading(false)
       history.push('/accounts')
     }
   };

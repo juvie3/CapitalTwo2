@@ -66,7 +66,7 @@
 }
 
 #name-bar {
-      visibility: hidden;
+      visibility: visible;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
@@ -232,8 +232,9 @@
     .contact-me-class {
       margin-left: 20px;
       color: white;
-      font-size: 23px;
-      margin-top: 26px;
+      font-size: 18px;
+      font-weight: 200;
+      margin-top: 32px;
       text-decoration-line: none;
     }
 
